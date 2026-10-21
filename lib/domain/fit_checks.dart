@@ -85,7 +85,7 @@ List<Check> animalFit(
           : Check(
               CheckKind.substrate,
               CheckStatus.caution,
-              '${species.commonName} needs soft sand (${_sourceName(s, species.flags[AnimalFlag.needsSand]!.source)}).',
+              '${species.commonName} needs soft sand (${sourceName(s, species.flags[AnimalFlag.needsSand]!.source)}).',
             ),
   ];
 }
@@ -185,10 +185,10 @@ CheckStatus _combine(Iterable<CheckStatus> statuses) {
 
 String _describeRange(RangeReport r, String unit, Map<String, String> sources) {
   final parts = [
-    if (r.optimal != null) 'ideal ${_span(r.optimal!)}$unit',
-    if (r.tolerated != null) 'tolerates ${_span(r.tolerated!)}$unit',
+    if (r.optimal != null) 'ideal ${formatSpan(r.optimal!)}$unit',
+    if (r.tolerated != null) 'tolerates ${formatSpan(r.tolerated!)}$unit',
   ];
-  return '${parts.join(', ')} (${_sourceName(sources, r.source)})';
+  return '${parts.join(', ')} (${sourceName(sources, r.source)})';
 }
 
 Check _tankSizeCheck(
@@ -205,7 +205,7 @@ Check _tankSizeCheck(
   }
   final verdicts = <({CheckStatus status, String text})>[];
   for (final size in sizes) {
-    final from = _sourceName(sources, size.source);
+    final from = sourceName(sources, size.source);
     if (size.lengthCm != null || size.widthCm != null) {
       final needs = [
         if (size.lengthCm != null) _number(size.lengthCm!),
@@ -260,7 +260,7 @@ String _tankDescription(TankSetup setup) {
 Check? _groupCheck(AnimalSpecies species, int total) {
   final min = species.minGroupSize;
   if (min == null) return null;
-  final from = _sourceName(species.sources, min.source);
+  final from = sourceName(species.sources, min.source);
   return total >= min.value
       ? Check(
           CheckKind.groupSize,
@@ -277,7 +277,7 @@ Check? _groupCheck(AnimalSpecies species, int total) {
 Check? _maturityCheck(AnimalSpecies species, Maturity maturity, DateTime now) {
   final flag = species.flags[AnimalFlag.needsMatureTank];
   if (flag?.value != true) return null;
-  final from = _sourceName(species.sources, flag!.source);
+  final from = sourceName(species.sources, flag!.source);
   final establishedAt = maturity.establishedAt;
   if (establishedAt == null) {
     return Check(
@@ -308,7 +308,7 @@ Check _lightCheck(PlantSpecies plant, TankSetup setup) {
     );
   }
   final ratings = plant.light
-      .map((r) => '${r.value.name} (${_sourceName(plant.sources, r.source)})')
+      .map((r) => '${r.value.name} (${sourceName(plant.sources, r.source)})')
       .join(', ');
   final tank = setup.lightLevel;
   if (tank == null) {
@@ -352,7 +352,7 @@ Check _co2Check(PlantSpecies plant, TankSetup setup) {
             },
   ];
   final ratings = plant.co2
-      .map((r) => '${r.value.name} (${_sourceName(plant.sources, r.source)})')
+      .map((r) => '${r.value.name} (${sourceName(plant.sources, r.source)})')
       .join(', ');
   return Check(
     CheckKind.co2,
@@ -360,16 +360,6 @@ Check _co2Check(PlantSpecies plant, TankSetup setup) {
     '${setup.hasCo2 ? 'You add CO₂' : 'No CO₂'}; sources say $ratings.',
   );
 }
-
-String _sourceName(Map<String, String> sources, String key) {
-  final host = Uri.tryParse(sources[key] ?? '')?.host ?? '';
-  final name = host.startsWith('www.') ? host.substring(4) : host;
-  return name.isEmpty ? key : name;
-}
-
-String _span(Span span) => span.max == null
-    ? '${_number(span.min)}+'
-    : '${_number(span.min)}–${_number(span.max!)}';
 
 String _number(double value) =>
     formatNumber(double.parse(value.toStringAsFixed(1)));

@@ -2,6 +2,7 @@ import 'package:aquarium_app/data/database.dart';
 import 'package:aquarium_app/data/providers.dart';
 import 'package:aquarium_app/main.dart';
 import 'package:aquarium_app/domain/chart_reader.dart';
+import 'package:aquarium_app/domain/species.dart';
 import 'package:aquarium_app/notifications/reminder_notifier.dart';
 import 'package:aquarium_app/scanning/chart_scanner.dart';
 import 'package:drift/drift.dart';
@@ -26,6 +27,7 @@ Future<void> pumpApp(
   AppDatabase db, {
   ReminderNotifier? notifier,
   ChartScanner? scanner,
+  SpeciesCatalog catalog = const SpeciesCatalog(),
 }) async {
   tester.view.physicalSize = const Size(1080, 2400);
   tester.view.devicePixelRatio = 2.625;
@@ -39,6 +41,7 @@ Future<void> pumpApp(
           notifier ?? FakeReminderNotifier(),
         ),
         chartScannerProvider.overrideWithValue(scanner ?? FakeChartScanner()),
+        speciesCatalogProvider.overrideWith((ref) async => catalog),
       ],
       child: const AquariumApp(),
     ),

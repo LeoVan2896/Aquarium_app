@@ -1,3 +1,5 @@
+import 'units.dart';
+
 enum Tier { beginner, easyIntermediate, intermediate }
 
 enum AnimalKind { fish, shrimp, snail }
@@ -44,6 +46,13 @@ class Span {
 
   final double min;
   final double? max;
+}
+
+String formatSpan(Span span) {
+  String n(double v) => formatNumber(double.parse(v.toStringAsFixed(1)));
+  return span.max == null
+      ? '${n(span.min)}+'
+      : '${n(span.min)}–${n(span.max!)}';
 }
 
 // `source` is a key into the owning entry's `sources` map.
@@ -188,4 +197,11 @@ class SpeciesCatalog {
   final List<AnimalSpecies> animals;
   final List<PlantSpecies> plants;
   final List<AvoidEntry> avoid;
+}
+
+// The site's host reads better than a bare key like "sf" in a reason.
+String sourceName(Map<String, String> sources, String key) {
+  final host = Uri.tryParse(sources[key] ?? '')?.host ?? '';
+  final name = host.startsWith('www.') ? host.substring(4) : host;
+  return name.isEmpty ? key : name;
 }

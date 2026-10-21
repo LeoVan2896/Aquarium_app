@@ -11,6 +11,7 @@ import '../domain/units.dart';
 import '../notifications/reminder_notifier.dart';
 import 'kit_setup_screen.dart';
 import 'labels.dart';
+import 'species_browser_screen.dart';
 import 'tank_form_screen.dart';
 import 'tank_screen.dart';
 import 'theme.dart';
@@ -162,6 +163,39 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ],
                   ];
                 }),
+                const SizedBox(height: AppSpace.s4),
+                const SectionHeader('Fish & plants'),
+                GroupedSection(
+                  children: [
+                    ListTile(
+                      onTap: () => Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (_) => const SpeciesBrowserScreen(),
+                        ),
+                      ),
+                      contentPadding: const EdgeInsets.only(
+                        left: AppSpace.s4,
+                        right: AppSpace.s2,
+                      ),
+                      leading: const Icon(
+                        Icons.set_meal_outlined,
+                        color: AppColors.muted,
+                      ),
+                      title: const Text('Browse species'),
+                      subtitle: const Text(
+                        'Care ranges from cited sources',
+                        style: TextStyle(
+                          fontSize: AppType.sm,
+                          color: AppColors.muted,
+                        ),
+                      ),
+                      trailing: const Icon(
+                        Icons.chevron_right_rounded,
+                        color: AppColors.muted2,
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: AppSpace.s4),
                 SectionHeader(
                   'Test kits',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' show DateUtils;
 
 import '../domain/cycle_engine.dart';
 import '../domain/enums.dart';
+import '../domain/species.dart';
 import '../domain/units.dart';
 
 extension CycleStageLabel on CycleStage {
@@ -19,6 +20,100 @@ extension CycleMethodLabel on CycleMethod {
   String get label => switch (this) {
     CycleMethod.fishless => 'Fishless',
     CycleMethod.fishIn => 'Fish-in',
+  };
+}
+
+extension TierLabel on Tier {
+  String get label => switch (this) {
+    Tier.beginner => 'Beginner',
+    Tier.easyIntermediate => 'Easy intermediate',
+    Tier.intermediate => 'Intermediate',
+  };
+}
+
+extension AnimalKindLabel on AnimalKind {
+  String get label => switch (this) {
+    AnimalKind.fish => 'Fish',
+    AnimalKind.shrimp => 'Shrimp',
+    AnimalKind.snail => 'Snail',
+  };
+}
+
+extension TemperamentLabel on Temperament {
+  String get label => switch (this) {
+    Temperament.peaceful => 'Peaceful',
+    Temperament.semiAggressive => 'Semi-aggressive',
+    Temperament.aggressive => 'Aggressive',
+  };
+}
+
+extension SwimLevelLabel on SwimLevel {
+  String get label => switch (this) {
+    SwimLevel.top => 'Top',
+    SwimLevel.middle => 'Middle',
+    SwimLevel.bottom => 'Bottom',
+    SwimLevel.all => 'All levels',
+  };
+}
+
+extension LightLevelLabel on LightLevel {
+  String get label => switch (this) {
+    LightLevel.low => 'Low',
+    LightLevel.medium => 'Medium',
+    LightLevel.high => 'High',
+  };
+}
+
+extension Co2NeedLabel on Co2Need {
+  String get label => switch (this) {
+    Co2Need.notNeeded => 'Not needed',
+    Co2Need.helps => 'Helps',
+    Co2Need.required => 'Required',
+  };
+}
+
+extension GrowthRateLabel on GrowthRate {
+  String get label => switch (this) {
+    GrowthRate.verySlow => 'Very slow',
+    GrowthRate.slow => 'Slow',
+    GrowthRate.medium => 'Medium',
+    GrowthRate.fast => 'Fast',
+    GrowthRate.veryFast => 'Very fast',
+  };
+}
+
+extension PlacementLabel on Placement {
+  String get label => switch (this) {
+    Placement.foreground => 'Foreground',
+    Placement.midground => 'Midground',
+    Placement.background => 'Background',
+    Placement.floating => 'Floating',
+  };
+}
+
+extension AnimalFlagLabel on AnimalFlag {
+  String get label => switch (this) {
+    AnimalFlag.finNipper => 'Nips fins',
+    AnimalFlag.longFinned => 'Long fins',
+    AnimalFlag.eatsPlants => 'Eats plants',
+    AnimalFlag.digs => 'Digs',
+    AnimalFlag.eatsShrimp => 'Eats shrimp',
+    AnimalFlag.eatsSmallFish => 'Eats small fish',
+    AnimalFlag.needsMatureTank => 'Needs an established tank',
+    AnimalFlag.needsLiveFood => 'Needs live or frozen food',
+    AnimalFlag.needsSand => 'Needs soft sand',
+    AnimalFlag.stockQualityWarning => 'Store stock often in poor health',
+  };
+}
+
+extension IntermediateReasonLabel on IntermediateReason {
+  String get label => switch (this) {
+    IntermediateReason.matureTank => 'Needs a mature, stable tank',
+    IntermediateReason.liveFood => 'Needs live or frozen food',
+    IntermediateReason.softWater => 'Needs soft water',
+    IntermediateReason.territorial => 'Territorial males',
+    IntermediateReason.equipment => 'Needs special equipment',
+    IntermediateReason.poorCompetitor => 'Easily outcompeted for food',
   };
 }
 
