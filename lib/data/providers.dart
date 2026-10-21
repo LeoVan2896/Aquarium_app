@@ -1,4 +1,5 @@
 import 'package:drift/drift.dart' show OrderingTerm;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/config.dart';
@@ -8,6 +9,8 @@ import '../domain/models.dart';
 import '../domain/prediction.dart';
 import '../domain/reminder_schedule.dart';
 import '../domain/softened_check.dart';
+import '../domain/species.dart';
+import '../domain/species_catalog.dart';
 import '../notifications/reminder_notifier.dart';
 import '../scanning/chart_scanner.dart';
 import 'database.dart';
@@ -216,4 +219,8 @@ DateTime? lastTestFor(List<Reading> readings, int tankId) {
 
 final chartScannerProvider = Provider<ChartScanner>(
   (ref) => MlKitChartScanner(),
+);
+
+final speciesCatalogProvider = FutureProvider<SpeciesCatalog>(
+  (ref) => loadSpeciesCatalog(rootBundle.loadString),
 );
