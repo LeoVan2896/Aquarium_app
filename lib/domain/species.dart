@@ -77,7 +77,7 @@ class TankSize {
 }
 
 // Range lists hold one report per source, so disagreements are kept, not merged.
-// An empty list means no source stated the value.
+// An empty list means no source stated the value. GH and KH are in degrees (dGH, dKH).
 class AnimalSpecies {
   const AnimalSpecies({
     required this.id,

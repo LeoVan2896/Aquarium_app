@@ -41,6 +41,19 @@ class DomainConfig {
       (min: 2, max: 7),
       'Estimate: time to pass the required dose tests; not from a primary source.',
     ),
+    this.conditionsMaxAgeDays = const Sourced(
+      30,
+      'Huy accepted: research gives no number, only periodic re-testing as aquasoil buffering fades.',
+    ),
+    this.maturityFactor = const Sourced(
+      1.0,
+      'Placeholder: Huy\'s rule is that maturity depends on cycle speed; sources only say "many months" (ACO).',
+    ),
+    this.predationSizeRatio = const Sourced<double?>(
+      null,
+      'No source found. Until set, any smaller tankmate of a fish-eater gets a caution.',
+    ),
+    this.rangeMargin = 0,
     this.softenedWindowHours = 48,
     this.readyNitrateMaxPpm = 20,
     this.doseTargetPpm = 2,
@@ -60,6 +73,10 @@ class DomainConfig {
   final Sourced<double> softenedKhMinDkh;
   final Sourced<DayRange> nitritePhaseDays;
   final Sourced<DayRange> doseTestDays;
+  final Sourced<int> conditionsMaxAgeDays;
+  final Sourced<double> maturityFactor;
+  final Sourced<double?> predationSizeRatio;
+  final double rangeMargin;
   final int softenedWindowHours;
   final double readyNitrateMaxPpm;
   final double doseTargetPpm;
