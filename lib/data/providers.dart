@@ -9,6 +9,7 @@ import '../domain/prediction.dart';
 import '../domain/reminder_schedule.dart';
 import '../domain/softened_check.dart';
 import '../notifications/reminder_notifier.dart';
+import '../scanning/chart_scanner.dart';
 import 'database.dart';
 import 'mappers.dart';
 
@@ -212,3 +213,7 @@ DateTime? lastTestFor(List<Reading> readings, int tankId) {
   }
   return latest;
 }
+
+final chartScannerProvider = Provider<ChartScanner>(
+  (ref) => MlKitChartScanner(),
+);

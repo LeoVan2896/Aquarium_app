@@ -1,7 +1,9 @@
 import 'package:aquarium_app/data/database.dart';
 import 'package:aquarium_app/data/providers.dart';
 import 'package:aquarium_app/main.dart';
+import 'package:aquarium_app/domain/chart_reader.dart';
 import 'package:aquarium_app/notifications/reminder_notifier.dart';
+import 'package:aquarium_app/scanning/chart_scanner.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/widgets.dart';
@@ -23,6 +25,7 @@ Future<void> pumpApp(
   WidgetTester tester,
   AppDatabase db, {
   ReminderNotifier? notifier,
+  ChartScanner? scanner,
 }) async {
   tester.view.physicalSize = const Size(1080, 2400);
   tester.view.devicePixelRatio = 2.625;
@@ -35,6 +38,7 @@ Future<void> pumpApp(
         reminderNotifierProvider.overrideWithValue(
           notifier ?? FakeReminderNotifier(),
         ),
+        chartScannerProvider.overrideWithValue(scanner ?? FakeChartScanner()),
       ],
       child: const AquariumApp(),
     ),
@@ -67,4 +71,17 @@ class FakeReminderNotifier implements ReminderNotifier {
 
   @override
   Future<void> sendTest(String tankName) async => tests.add(tankName);
+}
+
+class FakeChartScanner implements ChartScanner {
+  FakeChartScanner([this.tokens]);
+
+  final List<ChartToken>? tokens;
+  final sources = <PhotoSource>[];
+
+  @override
+  Future<List<ChartToken>?> scan(PhotoSource source) async {
+    sources.add(source);
+    return tokens;
+  }
 }

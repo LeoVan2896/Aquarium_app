@@ -1,13 +1,17 @@
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter/foundation.dart' show listEquals;
+import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/database.dart';
 import '../data/providers.dart';
+import '../domain/chart_reader.dart';
 import '../domain/enums.dart';
 import '../domain/steps.dart';
 import '../domain/units.dart';
+import '../scanning/chart_scanner.dart';
+import 'chart_review_screen.dart';
 import 'labels.dart';
 import 'theme.dart';
 import 'widgets.dart';
@@ -94,6 +98,89 @@ class _KitSetupScreenState extends ConsumerState<KitSetupScreen> {
       draft.stepError = null;
       draft.stepInput.clear();
     });
+  }
+
+  Future<void> _scanChart() async {
+    final source = await showModalBottomSheet<PhotoSource>(
+      context: context,
+      backgroundColor: AppColors.surface,
+      showDragHandle: true,
+      builder: (context) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.photo_camera_outlined),
+              title: const Text('Take a photo'),
+              onTap: () => Navigator.of(context).pop(PhotoSource.camera),
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo_library_outlined),
+              title: const Text('Choose from photos'),
+              onTap: () => Navigator.of(context).pop(PhotoSource.gallery),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (source == null || !mounted) return;
+
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
+    final List<ChartToken>? tokens;
+    try {
+      tokens = await ref.read(chartScannerProvider).scan(source);
+    } catch (_) {
+      messenger.showSnackBar(
+        const SnackBar(content: Text("Couldn't read that photo. Try again.")),
+      );
+      return;
+    }
+    if (tokens == null) return;
+
+    final reading = readChart(
+      tokens,
+      kitParameters: {for (final p in _params) p.parameter},
+    );
+    final results = await navigator.push<List<ScanResult>>(
+      CupertinoPageRoute(builder: (_) => ChartReviewScreen(reading: reading)),
+    );
+    if (results == null || results.isEmpty || !mounted) return;
+
+    setState(() {
+      for (final r in results) {
+        final unit = r.unit != null && unitOptions(r.parameter).contains(r.unit)
+            ? r.unit
+            : null;
+        final draft = _params
+            .where((p) => p.parameter == r.parameter)
+            .firstOrNull;
+        if (draft == null) {
+          _params.add(
+            _ParamDraft(
+              parameter: r.parameter,
+              unit: unit ?? unitOptions(r.parameter).first,
+              mode: InputMode.steps,
+              steps: r.steps,
+            ),
+          );
+        } else {
+          draft
+            ..steps = r.steps
+            ..mode = InputMode.steps
+            ..unit = unit ?? draft.unit;
+        }
+      }
+      _params.sort((a, b) => a.parameter.index.compareTo(b.parameter.index));
+      _showMissingParams = false;
+    });
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(
+          'Filled steps for ${results.length} parameter${results.length == 1 ? '' : 's'}. Check them, then save.',
+        ),
+      ),
+    );
   }
 
   Future<void> _pickParameter() async {
@@ -198,6 +285,29 @@ class _KitSetupScreenState extends ConsumerState<KitSetupScreen> {
                       controller: _brand,
                       decoration: const InputDecoration(
                         labelText: 'Brand (optional)',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: AppSpace.s5),
+              GroupedSection(
+                children: [
+                  ListTile(
+                    onTap: _scanChart,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: AppSpace.s4,
+                    ),
+                    leading: const Icon(
+                      Icons.photo_camera_outlined,
+                      color: AppColors.muted,
+                    ),
+                    title: const Text('Read steps from a photo'),
+                    subtitle: const Text(
+                      "Photograph your bottle's color chart. You'll check the numbers before they're used.",
+                      style: TextStyle(
+                        fontSize: AppType.sm,
+                        color: AppColors.muted,
                       ),
                     ),
                   ),
