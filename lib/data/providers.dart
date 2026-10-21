@@ -7,6 +7,7 @@ import '../domain/cycle_engine.dart';
 import '../domain/enums.dart';
 import '../domain/models.dart';
 import '../domain/prediction.dart';
+import '../domain/recommendations.dart';
 import '../domain/reminder_schedule.dart';
 import '../domain/softened_check.dart';
 import '../domain/species.dart';
@@ -264,7 +265,9 @@ class StockContext {
     required this.status,
     required this.fishGated,
     required this.stock,
+    required this.alerts,
     required this.now,
+    required this.conditionsMaxAgeDays,
   });
 
   final SpeciesCatalog catalog;
@@ -274,7 +277,9 @@ class StockContext {
   final CycleStatus status;
   final bool fishGated;
   final List<StockedSpecies> stock;
+  final List<SpeciesAlert> alerts;
   final DateTime now;
+  final int conditionsMaxAgeDays;
 
   List<AnimalSpecies> get animals => [for (final s in stock) ?s.animal];
 
@@ -360,15 +365,16 @@ StockContext _buildStockContext(
       ),
   ]..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
 
+  final conditions = tankConditions(
+    setup: setup,
+    readings: readings,
+    now: now,
+    config: config,
+  );
   return StockContext(
     catalog: catalog,
     setup: setup,
-    conditions: tankConditions(
-      setup: setup,
-      readings: readings,
-      now: now,
-      config: config,
-    ),
+    conditions: conditions,
     maturity: tankMaturity(
       tank: profile,
       readings: readings,
@@ -378,6 +384,14 @@ StockContext _buildStockContext(
     status: status,
     fishGated: fishGated(tank.cycleMethod, status.stage),
     stock: stock,
+    alerts: speciesAlerts(
+      animals: [for (final s in stock) ?s.animal],
+      plants: [for (final s in stock) ?s.plant],
+      setup: setup,
+      conditions: conditions,
+      config: config,
+    ),
     now: now,
+    conditionsMaxAgeDays: config.conditionsMaxAgeDays.value,
   );
 }

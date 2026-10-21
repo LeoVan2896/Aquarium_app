@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../domain/cycle_engine.dart';
 import '../domain/models.dart';
 import '../domain/prediction.dart';
+import '../domain/recommendations.dart';
 import '../domain/softened_check.dart';
 import '../domain/units.dart';
 import 'labels.dart';
@@ -89,6 +90,59 @@ class CycleCard extends StatelessWidget {
               ),
             ),
           ],
+        ],
+      ),
+    );
+  }
+}
+
+class SpeciesAlertBanner extends StatelessWidget {
+  const SpeciesAlertBanner(this.alerts, {super.key});
+
+  final List<SpeciesAlert> alerts;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(AppSpace.s4),
+      decoration: BoxDecoration(
+        color: AppColors.recessed,
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        border: Border.all(color: AppColors.fail.withValues(alpha: 0.5)),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.error_outline_rounded, color: AppColors.fail),
+          const SizedBox(width: AppSpace.s3),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Outside what your stock can take',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.fail,
+                  ),
+                ),
+                for (final a in alerts) ...[
+                  const SizedBox(height: AppSpace.s2),
+                  Text(
+                    a.speciesName,
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    a.check.reason,
+                    style: const TextStyle(
+                      fontSize: AppType.sm,
+                      color: AppColors.muted,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
         ],
       ),
     );

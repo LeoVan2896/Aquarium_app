@@ -13,19 +13,27 @@ import 'theme.dart';
 import 'widgets.dart';
 
 class AddStockScreen extends ConsumerStatefulWidget {
-  const AddStockScreen({super.key, required this.tank, this.removing});
+  const AddStockScreen({
+    super.key,
+    required this.tank,
+    this.removing,
+    this.initialType = SpeciesType.animal,
+    this.initialSpeciesId,
+  });
 
   final Tank tank;
   final StockedSpecies? removing;
+  final SpeciesType initialType;
+  final String? initialSpeciesId;
 
   @override
   ConsumerState<AddStockScreen> createState() => _AddStockScreenState();
 }
 
 class _AddStockScreenState extends ConsumerState<AddStockScreen> {
-  SpeciesType _type = SpeciesType.animal;
+  late SpeciesType _type = widget.initialType;
   String _query = '';
-  String? _speciesId;
+  late String? _speciesId = widget.initialSpeciesId;
   int _count = 1;
   late DateTime _at = ref.read(clockProvider)();
   final _note = TextEditingController();
@@ -160,7 +168,10 @@ class _AddStockScreenState extends ConsumerState<AddStockScreen> {
     }
 
     return DiscardChangesGuard(
-      hasChanges: () => _removing || _speciesId != null,
+      hasChanges: () =>
+          _speciesId != widget.initialSpeciesId ||
+          _count != 1 ||
+          _note.text.trim().isNotEmpty,
       child: Scaffold(
         appBar: AppBar(
           title: Text(_removing ? 'Remove stock' : 'Add fish or plants'),

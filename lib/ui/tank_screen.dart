@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/database.dart';
 import '../data/providers.dart';
 import '../domain/enums.dart';
+import '../domain/fit_checks.dart';
+import '../domain/recommendations.dart';
 import '../domain/species.dart';
 import 'add_reading_screen.dart';
 import 'add_stock_screen.dart';
@@ -15,6 +17,7 @@ import 'log_event_screen.dart';
 import 'reminder_screen.dart';
 import 'species_detail_screen.dart';
 import 'tank_form_screen.dart';
+import 'what_fits_screen.dart';
 import 'theme.dart';
 import 'value_input.dart';
 import 'widgets.dart';
@@ -74,6 +77,11 @@ class TankScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.all(AppSpace.s4),
         children: [
+          if (stock?.alerts.where((a) => a.check.status == CheckStatus.fail)
+              case final fails? when fails.isNotEmpty) ...[
+            SpeciesAlertBanner(fails.toList()),
+            const SizedBox(height: AppSpace.s3),
+          ],
           if (dashboard != null) ...[
             if (dashboard.softened case final warning?) ...[
               SoftenedBanner(warning),
@@ -504,8 +512,21 @@ class _StockSection extends StatelessWidget {
   void _push(BuildContext context, Widget screen) =>
       Navigator.of(context).push(CupertinoPageRoute(builder: (_) => screen));
 
+  CheckStatus? _worstAlert(String name) {
+    final statuses = {
+      for (final a in stock.alerts)
+        if (a.speciesName == name) a.check.status,
+    };
+    return statuses.contains(CheckStatus.fail)
+        ? CheckStatus.fail
+        : statuses.contains(CheckStatus.caution)
+        ? CheckStatus.caution
+        : null;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final stale = staleWaterTests(stock.conditions);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -550,12 +571,22 @@ class _StockSection extends StatelessWidget {
                     left: AppSpace.s4,
                     right: AppSpace.s1,
                   ),
-                  leading: Icon(
-                    s.type == SpeciesType.plant
-                        ? Icons.grass_rounded
-                        : Icons.set_meal_outlined,
-                    color: AppColors.muted,
-                  ),
+                  leading: switch (_worstAlert(s.name)) {
+                    CheckStatus.fail => const Icon(
+                      Icons.error_outline_rounded,
+                      color: AppColors.fail,
+                    ),
+                    CheckStatus.caution => const Icon(
+                      Icons.warning_amber_rounded,
+                      color: AppColors.warn,
+                    ),
+                    _ => Icon(
+                      s.type == SpeciesType.plant
+                          ? Icons.grass_rounded
+                          : Icons.set_meal_outlined,
+                      color: AppColors.muted,
+                    ),
+                  },
                   title: Text(s.name),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -583,10 +614,59 @@ class _StockSection extends StatelessWidget {
                 ),
             ],
           ),
+        const SizedBox(height: AppSpace.s3),
+        GroupedSection(
+          children: [
+            ListTile(
+              onTap: () => _push(context, WhatFitsScreen(tank: tank)),
+              contentPadding: const EdgeInsets.only(
+                left: AppSpace.s4,
+                right: AppSpace.s2,
+              ),
+              leading: const Icon(
+                Icons.lightbulb_outline_rounded,
+                color: AppColors.muted,
+              ),
+              title: const Text('What fits this tank'),
+              trailing: const Icon(
+                Icons.chevron_right_rounded,
+                color: AppColors.muted2,
+              ),
+            ),
+            if (stale.isNotEmpty)
+              ListTile(
+                onTap: () => _push(context, AddReadingScreen(tankId: tank.id)),
+                contentPadding: const EdgeInsets.only(
+                  left: AppSpace.s4,
+                  right: AppSpace.s2,
+                ),
+                leading: const Icon(
+                  Icons.science_outlined,
+                  color: AppColors.warn,
+                ),
+                title: Text('Test ${_list(stale)} to update fit checks'),
+                subtitle: Text(
+                  'No reading in the last ${stock.conditionsMaxAgeDays} days.',
+                  style: const TextStyle(
+                    fontSize: AppType.sm,
+                    color: AppColors.muted,
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.chevron_right_rounded,
+                  color: AppColors.muted2,
+                ),
+              ),
+          ],
+        ),
       ],
     );
   }
 }
+
+String _list(List<String> items) => items.length <= 1
+    ? items.join()
+    : '${items.sublist(0, items.length - 1).join(', ')} and ${items.last}';
 
 class _StockRow extends StatelessWidget {
   const _StockRow(this.item, {required this.name, required this.onTap});
