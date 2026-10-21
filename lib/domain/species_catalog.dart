@@ -70,11 +70,9 @@ List<String> validateCatalog(SpeciesCatalog catalog) {
     }
   }
 
-  void span(String where, Span span, {required bool closed}) {
+  void span(String where, Span span) {
     final max = span.max;
-    if (max == null) {
-      if (closed) issues.add('$where: needs both min and max');
-    } else if (span.min > max) {
+    if (max != null && span.min > max) {
       issues.add('$where: min is above max');
     }
   }
@@ -93,8 +91,9 @@ List<String> validateCatalog(SpeciesCatalog catalog) {
       if (optimal == null && tolerated == null) {
         issues.add('$at: needs optimal or tolerated');
       }
-      if (optimal != null) span('$at.optimal', optimal, closed: true);
-      if (tolerated != null) span('$at.tolerated', tolerated, closed: true);
+      // Open-ended is allowed: sources say things like "GH 6 or more".
+      if (optimal != null) span('$at.optimal', optimal);
+      if (tolerated != null) span('$at.tolerated', tolerated);
       if (optimal != null &&
           tolerated != null &&
           optimal.max != null &&
@@ -120,7 +119,7 @@ List<String> validateCatalog(SpeciesCatalog catalog) {
     for (var i = 0; i < a.adultSizeIn.length; i++) {
       final size = a.adultSizeIn[i];
       ref('$w.adultSizeIn[$i]', size.source, s);
-      span('$w.adultSizeIn[$i]', size.value, closed: false);
+      span('$w.adultSizeIn[$i]', size.value);
     }
     for (var i = 0; i < a.minTank.length; i++) {
       final t = a.minTank[i];
@@ -161,7 +160,7 @@ List<String> validateCatalog(SpeciesCatalog catalog) {
     ]) {
       if (height == null) continue;
       ref('$w.$field', height.source, s);
-      span('$w.$field', height.value, closed: false);
+      span('$w.$field', height.value);
     }
   }
 

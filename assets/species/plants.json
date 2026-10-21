@@ -1,1 +1,2473 @@
-[]
+[
+  {
+    "id": "anubias-barteri-nana",
+    "commonName": "Dwarf anubias",
+    "scientificName": "Anubias barteri var. nana",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/anubias-barteri-var-nana"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          72,
+          79
+        ],
+        "tolerated": [
+          54,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          0,
+          21
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground",
+        "foreground"
+      ],
+      "source": "flowgrow"
+    },
+    "epiphyte": {
+      "value": true,
+      "source": "flowgrow"
+    },
+    "notes": "\"Nearly indestructible\"; a \"cichlid proof plant\". Keep the rhizome above the substrate; tie to wood or rock. Midground in small tanks, foreground in large. Flowgrow height 5–10 cm."
+  },
+  {
+    "id": "microsorum-pteropus",
+    "commonName": "Java fern",
+    "scientificName": "Microsorum pteropus",
+    "tier": "beginner",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus(008)/4408",
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/microsorum-pteropus"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          68,
+          82
+        ],
+        "tolerated": [
+          39,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          0,
+          14
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      },
+      {
+        "value": "low",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground",
+        "background"
+      ],
+      "source": "flowgrow"
+    },
+    "epiphyte": {
+      "value": true,
+      "source": "flowgrow"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        15,
+        30
+      ],
+      "source": "tropica"
+    },
+    "notes": "Tie to wood or stone; \"do not cover the rhizome because it will rot\". Black spots under leaves are spores, not disease."
+  },
+  {
+    "id": "taxiphyllum-barbieri",
+    "commonName": "Java moss",
+    "scientificName": "Taxiphyllum barbieri",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/taxiphyllum-barbieri"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          68,
+          86
+        ],
+        "tolerated": [
+          54,
+          93
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          0,
+          21
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground"
+      ],
+      "source": "flowgrow"
+    },
+    "epiphyte": {
+      "value": true,
+      "source": "flowgrow"
+    },
+    "notes": "Spindly in weak light. Shelters shrimp and fry. \"Can become a nuisance\"."
+  },
+  {
+    "id": "cryptocoryne-wendtii-green",
+    "commonName": "Cryptocoryne wendtii 'Green'",
+    "scientificName": "Cryptocoryne wendtii 'Green'",
+    "tier": "beginner",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Cryptocorynewendtii'Green'(109)/4562",
+      "buce": "https://buceplant.com/blogs/news/cryptocoryne-melt"
+    },
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "heightAfter2MonthsCm": {
+      "value": [
+        10,
+        30
+      ],
+      "source": "tropica"
+    },
+    "notes": "Expect \"crypt melt\" 1–3 weeks after planting (Buce Plant); keep the rhizome undisturbed. Grows well in hard water. Temperature and pH not found in sources."
+  },
+  {
+    "id": "echinodorus-bleherae",
+    "commonName": "Amazon sword",
+    "scientificName": "Echinodorus grisebachii 'Bleherae'",
+    "tier": "beginner",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Echinodorusgrisebachii'Bleherae'(071)/4512",
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/echinodorus-grisebachii-bleherae"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          72,
+          79
+        ],
+        "tolerated": [
+          64,
+          86
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      },
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "flowgrow"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        20,
+        30
+      ],
+      "source": "tropica"
+    },
+    "maxHeightCm": {
+      "value": [
+        60
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "Tropica: for \"quite large aquariums\", grows 20–50 cm. Flowgrow: \"can exceed 60 cm in height as well as in width… unsuitable for any but very large tanks\"."
+  },
+  {
+    "id": "vallisneria-spiralis",
+    "commonName": "Vallisneria",
+    "scientificName": "Vallisneria spiralis",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/vallisneria-spiralis"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          68,
+          82
+        ],
+        "tolerated": [
+          41,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          6,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          2,
+          21
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "Spreads by runners. Plants sold as V. spiralis from Malaysia have been identified as V. denseserrulata."
+  },
+  {
+    "id": "sagittaria-subulata",
+    "commonName": "Dwarf sagittaria",
+    "scientificName": "Sagittaria subulata",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/sagittaria-subulata"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          64,
+          82
+        ],
+        "tolerated": [
+          39,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          9
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          2,
+          30
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground",
+        "background"
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "\"Especially prone to iron deficiency\"; a nutrient-rich substrate helps. 5–10 cm in loose groups, up to 60 cm when dense."
+  },
+  {
+    "id": "egeria-densa",
+    "commonName": "Anacharis",
+    "scientificName": "Egeria densa",
+    "tier": "beginner",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Egeriadensa(058BDT)/4506",
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/egeria-densa"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          68,
+          75
+        ],
+        "tolerated": [
+          39,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          9
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          2,
+          20
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      },
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "tropica"
+      },
+      {
+        "value": "veryFast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "Tropica: \"a good plant for beginners\"; stems grow to 40–100 cm. Flowgrow: prefers colder, hard water and decorative use \"is difficult\". Fish such as goldfish eat it."
+  },
+  {
+    "id": "ceratophyllum-demersum",
+    "commonName": "Hornwort",
+    "scientificName": "Ceratophyllum demersum",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/ceratophyllum-demersum",
+      "wiki": "https://en.wikipedia.org/wiki/Ceratophyllum_demersum"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          50,
+          86
+        ],
+        "tolerated": [
+          39,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          6,
+          9
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          24
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "veryFast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background",
+        "midground",
+        "floating"
+      ],
+      "source": "flowgrow"
+    },
+    "rootFeeder": {
+      "value": false,
+      "source": "wiki"
+    },
+    "notes": "Has no roots; float it or anchor it, and trim often."
+  },
+  {
+    "id": "ceratopteris-thalictroides",
+    "commonName": "Water sprite",
+    "scientificName": "Ceratopteris thalictroides",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/ceratopteris-thalictroides"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          72,
+          82
+        ],
+        "tolerated": [
+          64,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          0,
+          21
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "veryFast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background",
+        "midground",
+        "floating"
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "Flowgrow rates difficulty \"medium\". Bettas and gouramis use it for bubble nests."
+  },
+  {
+    "id": "limnobium-laevigatum",
+    "commonName": "Amazon frogbit",
+    "scientificName": "Limnobium laevigatum",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/limnobium-laevigatum"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          68,
+          81
+        ],
+        "tolerated": [
+          39,
+          95
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          0,
+          14
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "veryFast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "floating"
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "Free-floating. Shades the tank, which neon tetras prefer. Mystery snails eat floaters."
+  },
+  {
+    "id": "aegagropila-linnaei",
+    "commonName": "Marimo moss ball",
+    "scientificName": "Aegagropila linnaei",
+    "tier": "beginner",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Aegagropilalinnaei(000CST)/4385",
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/aegagropila-linnaei"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          59,
+          75
+        ],
+        "tolerated": [
+          39,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          6,
+          8.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          2,
+          18
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      },
+      {
+        "value": "low",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      },
+      {
+        "value": "verySlow",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "flowgrow"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        10
+      ],
+      "source": "tropica"
+    },
+    "notes": "Technically an alga. Turn it regularly to keep its shape."
+  },
+  {
+    "id": "bacopa-caroliniana",
+    "commonName": "Giant bacopa",
+    "scientificName": "Bacopa caroliniana",
+    "tier": "beginner",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Bacopacaroliniana(043)/4464",
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/bacopa-caroliniana"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          68,
+          77
+        ],
+        "tolerated": [
+          39,
+          84
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          2,
+          18
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      },
+      {
+        "value": "high",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      },
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background",
+        "midground"
+      ],
+      "source": "flowgrow"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        20,
+        30
+      ],
+      "source": "tropica"
+    },
+    "notes": "Flowgrow: \"needs lots and lots of light, at least 0.5 watts per litre\"; height 20–60 cm. Plant in small groups."
+  },
+  {
+    "id": "ludwigia-repens",
+    "commonName": "Creeping primrose-willow",
+    "scientificName": "Ludwigia repens",
+    "tier": "beginner",
+    "sources": {
+      "flowgrow": "https://www.flowgrow.de/db/aquaticplants/ludwigia-repens"
+    },
+    "tempF": [
+      {
+        "source": "flowgrow",
+        "optimal": [
+          72,
+          79
+        ],
+        "tolerated": [
+          39,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          5,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "flowgrow",
+        "tolerated": [
+          2,
+          15
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "flowgrow"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "flowgrow"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "flowgrow"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background",
+        "midground"
+      ],
+      "source": "flowgrow"
+    },
+    "notes": "Rated medium-to-high light but \"grows well under relatively low light (about 0.4 W/l)\", greener there. Red needs at least 0.5 W/L."
+  },
+  {
+    "id": "micranthemum-monte-carlo",
+    "commonName": "Monte Carlo",
+    "scientificName": "Micranthemum tweediei 'Monte Carlo'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Micranthemumtweediei'MonteCarlo'(025)/22880",
+      "dennerle": "http://scapefu.com/invitro.pdf",
+      "aqe": "https://aquaessentials.co.uk/blogs/potted-plants/micranthemum-monte-carlo-care"
+    },
+    "tempF": [
+      {
+        "source": "dennerle",
+        "tolerated": [
+          64,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "dennerle",
+        "tolerated": [
+          6,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "dennerle",
+        "tolerated": [
+          3,
+          10
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aqe"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        5
+      ],
+      "source": "tropica"
+    },
+    "notes": "Compact carpet only with CO₂ and good light. Tropica suggests it as the \"less demanding\" alternative to HC 'Cuba'."
+  },
+  {
+    "id": "eleocharis-pusilla-mini",
+    "commonName": "Dwarf hairgrass 'Mini'",
+    "scientificName": "Eleocharis pusilla 'Mini'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Eleocharispusilla'Mini'(132BTC)/4571",
+      "aquasabi": "https://www.aquasabi.com/aquascaping-wiki_aquatic-plants_gramineous-plants"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          64,
+          81
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        5
+      ],
+      "source": "tropica"
+    },
+    "notes": "Aquasabi's temperature is for E. sp. 'Mini'. Sparse without CO₂ and nutrients. pH not found."
+  },
+  {
+    "id": "pogostemon-helferi",
+    "commonName": "Downoi",
+    "scientificName": "Pogostemon helferi",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Pogostemonhelferi(053H)/4499",
+      "aquasabi": "https://www.aquasabi.de/Pogostemon-helferi_1"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          59,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          7
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          2,
+          14
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        10
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        1,
+        10
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Iron-hungry; stretches and yellows under weak light. Fragile stems."
+  },
+  {
+    "id": "cryptocoryne-parva",
+    "commonName": "Dwarf water trumpet",
+    "scientificName": "Cryptocoryne parva",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Cryptocoryneparva(106)/4558",
+      "aquasabi": "https://www.aquasabi.de/Cryptocoryne-parva_1",
+      "dennerle": "http://scapefu.com/invitro.pdf"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          59,
+          82
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          68,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          8
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          6,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          1,
+          18
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "notNeeded",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      },
+      {
+        "value": "verySlow",
+        "source": "aquasabi"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground"
+      ],
+      "source": "tropica"
+    },
+    "rootFeeder": {
+      "value": true,
+      "source": "aquasabi"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        5,
+        10
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        2,
+        5
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "\"Must never be overshadowed\". Takes about 6 months to fill in; use root tabs. Aquasabi's table says no CO₂, but its text recommends it. Holes and yellowing mean low iron or potassium."
+  },
+  {
+    "id": "marsilea-minuta",
+    "commonName": "Dwarf water clover",
+    "scientificName": "Marsilea minuta",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Marsileaminuta(010BTC)/4762"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        5
+      ],
+      "source": "tropica"
+    },
+    "notes": "\"Tolerates poor light\". The lowest-risk carpet without CO₂; carpets at 1–3 cm. Temperature and pH not found."
+  },
+  {
+    "id": "hydrocotyle-tripartita",
+    "commonName": "Hydrocotyle 'Japan'",
+    "scientificName": "Hydrocotyle tripartita",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Hydrocotyletripartita(039B)/4458",
+      "aquasabi": "https://www.aquasabi.com/Hydrocotyle-tripartita",
+      "dennerle": "http://scapefu.com/invitro.pdf"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          50,
+          86
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          68,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          7
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          6,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          0,
+          14
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "veryFast",
+        "source": "aquasabi"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        5,
+        5
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        1,
+        10
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Needs regular trimming."
+  },
+  {
+    "id": "alternanthera-reineckii-mini",
+    "commonName": "AR 'Mini'",
+    "scientificName": "Alternanthera reineckii 'Mini'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Alternantherareineckii'Mini'(023CTC)/4439",
+      "aquasabi": "https://www.aquasabi.com/Alternanthera-reineckii-Mini",
+      "dennerle": "http://scapefu.com/invitro.pdf"
+    },
+    "tempF": [
+      {
+        "source": "dennerle",
+        "tolerated": [
+          64,
+          82
+        ]
+      },
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          7
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          6,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          0,
+          14
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        5,
+        10
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        5,
+        30
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Red needs light, CO₂ and iron. Aquasabi's text range (72–82°F) is used; its table's 39–86°F contradicts it."
+  },
+  {
+    "id": "gratiola-viscidula",
+    "commonName": "Gratiola",
+    "scientificName": "Gratiola viscidula",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Gratiolaviscidula(042TC)/18390"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        10
+      ],
+      "source": "tropica"
+    },
+    "notes": "Temperature and pH not found."
+  },
+  {
+    "id": "hygrophila-lancea-araguaia",
+    "commonName": "Hygrophila 'Araguaia'",
+    "scientificName": "Hygrophila lancea 'Araguaia'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Hygrophilalancea'Araguaia'(051BTC)/4758",
+      "aquasabi": "https://www.aquasabi.com/Hygrophila-lancea-Araguaia",
+      "dennerle": "http://scapefu.com/invitro.pdf"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          64,
+          86
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          64,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          4,
+          7
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          6,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          0,
+          7
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      },
+      {
+        "value": "high",
+        "source": "aquasabi"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        10,
+        20
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        5,
+        20
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Red-brown. Needs soft water; can struggle moving from emersed to submersed growth."
+  },
+  {
+    "id": "blyxa-japonica",
+    "commonName": "Blyxa",
+    "scientificName": "Blyxa japonica",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Blyxajaponica(057TC)/22542",
+      "aquasabi": "https://www.aquasabi.de/Blyxa-japonica_1",
+      "dennerle": "https://dennerleplants.com/en/plants/plantdetails/Blyxa-japonica-(30469)/29997"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          61,
+          90
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          6
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          5,
+          7
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          0,
+          7
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      },
+      {
+        "value": "high",
+        "source": "dennerle"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "dennerle"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        10,
+        20
+      ],
+      "source": "tropica"
+    },
+    "notes": "\"Difficult to break in\". Aquasoil's low pH suits it. Dennerle: 20–30 mg/L CO₂, height 10–15 cm."
+  },
+  {
+    "id": "rotala-indica-bonsai",
+    "commonName": "Rotala 'Bonsai'",
+    "scientificName": "Rotala indica",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Rotalaindica'Bonsai'(033ETC)/4451",
+      "aquasabi": "https://www.aquasabi.com/Rotala-indica",
+      "dennerle": "http://scapefu.com/invitro.pdf"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          64,
+          86
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          68,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          7
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          6,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          0,
+          14
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          4,
+          6
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "slow",
+        "source": "tropica"
+      },
+      {
+        "value": "medium",
+        "source": "aquasabi"
+      }
+    ],
+    "placement": {
+      "value": [
+        "foreground",
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        5,
+        20
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        10,
+        30
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Sold as Ammannia sp. 'Bonsai'. Needs at least 0.5 W/L."
+  },
+  {
+    "id": "rotala-hra",
+    "commonName": "Rotala 'H'ra'",
+    "scientificName": "Rotala rotundifolia 'H'ra'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Rotalarotundifolia'H'ra'(032CTC)/19550",
+      "lightfish": "https://light.fish/blog/rotala-hra",
+      "gensou": "https://gensou.sg/rotala-hra-care-guide/"
+    },
+    "tempF": [
+      {
+        "source": "lightfish",
+        "tolerated": [
+          68,
+          80
+        ]
+      },
+      {
+        "source": "gensou",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "lightfish",
+        "tolerated": [
+          6,
+          8
+        ]
+      },
+      {
+        "source": "gensou",
+        "tolerated": [
+          5.5,
+          7.5
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "lightfish",
+        "tolerated": [
+          6,
+          12
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      },
+      {
+        "value": "high",
+        "source": "lightfish"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "required",
+        "source": "lightfish"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        3,
+        20
+      ],
+      "source": "tropica"
+    },
+    "notes": "The top end of intermediate. Temperature, pH and KH come only from secondary care guides (light.fish, Gensou): 80–120 PAR and at least 30 ppm CO₂ at lights-on."
+  },
+  {
+    "id": "rotala-blood-red",
+    "commonName": "Rotala 'Blood Red'",
+    "scientificName": "Rotala rotundifolia 'Blood Red'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Rotalarotundifolia'BloodRed'(032DTC)/30047"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground",
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        5,
+        20
+      ],
+      "source": "tropica"
+    },
+    "notes": "\"Can thrive in relatively low light\", but colour needs strong light and CO₂. Temperature and pH not found."
+  },
+  {
+    "id": "ludwigia-palustris-super-red",
+    "commonName": "Ludwigia 'Super Red'",
+    "scientificName": "Ludwigia palustris 'Super Red'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Ludwigiapalustris'SuperRed'(035B)/4453",
+      "aquasabi": "https://www.aquasabi.com/Ludwigia-palustris-Super-Red"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          64,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          7
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          0,
+          14
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "low",
+        "source": "tropica"
+      },
+      {
+        "value": "medium",
+        "source": "aquasabi"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "notNeeded",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      },
+      {
+        "value": "fast",
+        "source": "aquasabi"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground",
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        10,
+        30
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        20,
+        50
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Tropica rates it Easy; the gateway red stem plant."
+  },
+  {
+    "id": "alternanthera-reineckii-rosanervig",
+    "commonName": "AR 'Rosanervig'",
+    "scientificName": "Alternanthera reineckii 'Rosanervig'",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Alternantherareineckii'Rosanervig'(023D)/4440"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        5,
+        20
+      ],
+      "source": "tropica"
+    },
+    "notes": "Pink. Temperature and pH not found."
+  },
+  {
+    "id": "ammannia-crassicaulis",
+    "commonName": "Ammannia crassicaulis",
+    "scientificName": "Ammannia crassicaulis",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Ammanniacrassicaulis(033B)/4449"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        20,
+        30
+      ],
+      "source": "tropica"
+    },
+    "notes": "Tropica's table says medium light but its text says \"high light demands\"; lower leaves die without light. Prefers \"soft and slightly acidic\" water. Large for a 20 gal."
+  },
+  {
+    "id": "hygrophila-pinnatifida",
+    "commonName": "Hygrophila pinnatifida",
+    "scientificName": "Hygrophila pinnatifida",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Hygrophilapinnatifida(051A)/4486",
+      "dennerle_iv": "http://scapefu.com/invitro.pdf",
+      "dennerle": "https://dennerleplants.com/en/plants/plantdetails/NanoCavemitHygr.pinnatifida(30601)/30893"
+    },
+    "tempF": [
+      {
+        "source": "dennerle_iv",
+        "tolerated": [
+          68,
+          86
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "dennerle_iv",
+        "tolerated": [
+          6,
+          7.5
+        ]
+      },
+      {
+        "source": "dennerle",
+        "tolerated": [
+          5,
+          8
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "dennerle_iv",
+        "tolerated": [
+          3,
+          15
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      },
+      {
+        "value": "high",
+        "source": "dennerle"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "dennerle"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground"
+      ],
+      "source": "tropica"
+    },
+    "epiphyte": {
+      "value": true,
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        15,
+        30
+      ],
+      "source": "tropica"
+    },
+    "maxHeightCm": {
+      "value": [
+        40,
+        40
+      ],
+      "source": "dennerle"
+    },
+    "notes": "Side shoots \"easily attach to both wood and rocks\". Intense light keeps it compact."
+  },
+  {
+    "id": "myriophyllum-mattogrossense",
+    "commonName": "Brazilian milfoil",
+    "scientificName": "Myriophyllum mattogrossense",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Myriophyllummattogrossense(037)/4454",
+      "aquasabi": "https://www.aquasabi.de/Myriophyllum-mattogrossense_1"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          64,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          5,
+          7
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          2,
+          10
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "aquasabi"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        20,
+        30
+      ],
+      "source": "tropica"
+    },
+    "careHeightCm": {
+      "value": [
+        15,
+        60
+      ],
+      "source": "aquasabi"
+    },
+    "notes": "Tropica: \"a good starter plant\". Aquasabi: \"suited to medium-lit tanks without CO2\", faster with it. White shoot tips mean it needs iron."
+  },
+  {
+    "id": "limnophila-aquatica",
+    "commonName": "Giant ambulia",
+    "scientificName": "Limnophila aquatica",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046)/4471",
+      "aquasabi": "https://www.aquasabi.de/Limnophila-aquatica_1"
+    },
+    "tempF": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          59,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          6,
+          7
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aquasabi",
+        "tolerated": [
+          2,
+          18
+        ]
+      }
+    ],
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "notNeeded",
+        "source": "tropica"
+      },
+      {
+        "value": "helps",
+        "source": "aquasabi"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "fast",
+        "source": "aquasabi"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        20,
+        30
+      ],
+      "source": "tropica"
+    },
+    "notes": "With CO₂ and a rich substrate stems reach 25–50 cm; oversized for a 20 gal."
+  },
+  {
+    "id": "pogostemon-deccanensis",
+    "commonName": "Indian star",
+    "scientificName": "Pogostemon deccanensis",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Pogostemondeccanensis(053F)/4496"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        15,
+        30
+      ],
+      "source": "tropica"
+    },
+    "notes": "Formerly P. erectus. Intense light keeps it compact; needs frequent pruning. Temperature and pH not found."
+  },
+  {
+    "id": "juncus-repens",
+    "commonName": "Creeping rush",
+    "scientificName": "Juncus repens",
+    "tier": "intermediate",
+    "sources": {
+      "tropica": "https://tropica.com/en/plants/plantdetails/Juncusrepens(133FTC)/28107"
+    },
+    "light": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "co2": [
+      {
+        "value": "helps",
+        "source": "tropica"
+      }
+    ],
+    "growthRate": [
+      {
+        "value": "medium",
+        "source": "tropica"
+      }
+    ],
+    "placement": {
+      "value": [
+        "midground",
+        "background"
+      ],
+      "source": "tropica"
+    },
+    "heightAfter2MonthsCm": {
+      "value": [
+        10,
+        20
+      ],
+      "source": "tropica"
+    },
+    "notes": "\"Rather undemanding\". Aquasabi rates its growth slow. Temperature and pH not found."
+  }
+]

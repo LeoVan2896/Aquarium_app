@@ -50,9 +50,11 @@ class Span {
 
 String formatSpan(Span span) {
   String n(double v) => formatNumber(double.parse(v.toStringAsFixed(1)));
-  return span.max == null
-      ? '${n(span.min)}+'
-      : '${n(span.min)}–${n(span.max!)}';
+  return switch (span.max) {
+    null => '${n(span.min)}+',
+    final max when max == span.min => n(max),
+    final max => '${n(span.min)}–${n(max)}',
+  };
 }
 
 // `source` is a key into the owning entry's `sources` map.

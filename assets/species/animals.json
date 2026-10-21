@@ -1,1 +1,2715 @@
-[]
+[
+  {
+    "id": "paracheirodon-innesi",
+    "commonName": "Neon tetra",
+    "scientificName": "Paracheirodon innesi",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/paracheirodon-innesi/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          70,
+          77
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          4.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.8,
+          1.2
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "Mass-bred stock has widespread defects; \"neon tetra disease\" is untreatable at an advanced stage. Prefers dim light with plants and floaters."
+  },
+  {
+    "id": "trigonostigma-heteromorpha",
+    "commonName": "Harlequin rasbora",
+    "scientificName": "Trigonostigma heteromorpha",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          70,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.4,
+          1.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "notes": "\"Very peaceful indeed\". An unreserved newcomer recommendation with \"no special demands\" on water chemistry."
+  },
+  {
+    "id": "tanichthys-albonubes",
+    "commonName": "White Cloud Mountain minnow",
+    "scientificName": "Tanichthys albonubes",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/tanichthys-albonubes/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          57,
+          72
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          8.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          20
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.2,
+          1.6
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 10,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "notes": "Kept permanently warm, its lifespan shortens."
+  },
+  {
+    "id": "danio-rerio",
+    "commonName": "Zebra danio",
+    "scientificName": "Danio rerio",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/danio-rerio/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          64,
+          77
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          8.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          20
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.6,
+          2.0
+        ],
+        "source": "sf"
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    }
+  },
+  {
+    "id": "puntius-titteya",
+    "commonName": "Cherry barb",
+    "scientificName": "Puntius titteya",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/puntius-titteya/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/beginner-fish"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          81
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          8.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          2,
+          20
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.6,
+          2.0
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 6,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "notes": "SF: \"generally very peaceful\". ACO: barbs as a group can be semi-aggressive; buy 6+ and keep away from long-finned fish. pH range is for farmed fish."
+  },
+  {
+    "id": "pethia-conchonius",
+    "commonName": "Rosy barb",
+    "scientificName": "Pethia conchonius",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/pethia-conchonius/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          61,
+          75
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          8.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          20
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.6,
+          3.0
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 100,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "notes": "\"One of the hardiest small cyprinids\". Some forms reach 3.5–3.9 in."
+  },
+  {
+    "id": "hyphessobrycon-amandae",
+    "commonName": "Ember tetra",
+    "scientificName": "Hyphessobrycon amandae",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae/",
+      "sk": "https://www.shrimpkeepers.com/species/cherry-shrimp/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5.0,
+          7.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.6,
+          0.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "swimLevel": {
+      "value": "middle",
+      "source": "sf"
+    },
+    "flags": {
+      "eatsShrimp": {
+        "value": false,
+        "source": "sk"
+      }
+    },
+    "notes": "Mid-to-upper levels; does not normally hunt fry. A shrimp-safe nano fish."
+  },
+  {
+    "id": "gymnocorymbus-ternetzi",
+    "commonName": "Black skirt tetra",
+    "scientificName": "Gymnocorymbus ternetzi",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/gymnocorymbus-ternetzi/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          78
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          20
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.4,
+          2.4
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 76.2,
+        "widthCm": 30.5
+      }
+    ],
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "SF sizes a group for a 20 gal long (30 × 12 in). Dyed specimens are sold. Group size and fin-nipping verdict not found in source."
+  },
+  {
+    "id": "danio-margaritatus",
+    "commonName": "Celestial pearl danio",
+    "scientificName": "Danio margaritatus",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/danio-margaritatus/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.5,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.8,
+          0.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "Shy; males spar but not toward tankmates; rarely rises to the surface. SF: group \"ideally 20 or more\". Avoid tannins. New imports are often in poor condition."
+  },
+  {
+    "id": "corydoras-aeneus",
+    "commonName": "Bronze cory",
+    "scientificName": "Corydoras aeneus",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/corydoras-aeneus/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/beginner-fish"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          70,
+          81
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          8.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          2,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.6,
+          3.0
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 80,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 4,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "swimLevel": {
+      "value": "bottom",
+      "source": "sf"
+    },
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "Dyed and short-body mutants are sold. Needs sinking food. ACO gives a group of 3–6."
+  },
+  {
+    "id": "corydoras-panda",
+    "commonName": "Panda cory",
+    "scientificName": "Corydoras panda",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/corydoras-panda/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          77
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.4
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2,
+          2
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45.7,
+        "widthCm": 30.5
+      }
+    ],
+    "minGroupSize": {
+      "value": 6,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "swimLevel": {
+      "value": "bottom",
+      "source": "sf"
+    },
+    "notes": "Temperature range is for tank-bred fish. Kept above 77°F long-term, \"lifespan will be reduced considerably\". Usually smaller than 2 in."
+  },
+  {
+    "id": "corydoras-pygmaeus",
+    "commonName": "Pygmy cory",
+    "scientificName": "Corydoras pygmaeus",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/corydoras-pygmaeus/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.4,
+          7.4
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "optimal": [
+          2,
+          8
+        ],
+        "tolerated": [
+          2,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.2,
+          1.2
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 6,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "swimLevel": {
+      "value": "middle",
+      "source": "sf"
+    },
+    "notes": "Very peaceful; preferably 10+. Angelfish, gouramis and larger catfish eat it, so it is not for a general community."
+  },
+  {
+    "id": "pangio-semicincta",
+    "commonName": "Kuhli loach",
+    "scientificName": "Pangio semicincta",
+    "kind": "fish",
+    "tier": "easyIntermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/pangio-kuhlii/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/kuhli-loach-care-guide"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          70,
+          79
+        ]
+      },
+      {
+        "source": "aco",
+        "tolerated": [
+          74,
+          80
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          3.5,
+          7.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          0,
+          8
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          3.9,
+          3.9
+        ],
+        "source": "sf"
+      },
+      {
+        "value": [
+          3,
+          4
+        ],
+        "source": "aco"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 5,
+      "source": "sf"
+    },
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "swimLevel": {
+      "value": "bottom",
+      "source": "sf"
+    },
+    "flags": {
+      "digs": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsSand": {
+        "value": true,
+        "source": "sf"
+      },
+      "eatsShrimp": {
+        "value": false,
+        "source": "sf"
+      }
+    },
+    "notes": "Sold as P. kuhlii. Nocturnal; may eat eggs or fry. Buries itself and jumps. ACO calls it beginner-friendly and gives a group of 3–6."
+  },
+  {
+    "id": "ancistrus-cf-cirrhosus",
+    "commonName": "Bristlenose pleco",
+    "scientificName": "Ancistrus cf. cirrhosus",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/ancistrus-cf-cirrhosus/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          70,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5.5,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          3.9,
+          4.9
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "notes": "Keep one, or a pair; territorial with its own kind. Often misidentified. The small-tank alternative to the common pleco."
+  },
+  {
+    "id": "trichogaster-chuna",
+    "commonName": "Honey gourami",
+    "scientificName": "Trichogaster chuna",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/trichogaster-chuna/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          81
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          2,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.8,
+          2.2
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 4,
+      "source": "sf"
+    },
+    "notes": "Slow and easily intimidated; groups form a hierarchy. SF (pygmy cory page) lists gouramis among fish that eat pygmy corys."
+  },
+  {
+    "id": "betta-splendens",
+    "commonName": "Betta",
+    "scientificName": "Betta splendens",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/betta-splendens/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/beginner-fish"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          8.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.4,
+          2.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      },
+      {
+        "source": "aco",
+        "gallons": 5
+      }
+    ],
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "One male. SF: \"Not recommended for the standard community aquarium\". ACO: 5 gal alone, OK with tetras or corys in 10+ gal. pH range is for ornamental strains."
+  },
+  {
+    "id": "poecilia-reticulata",
+    "commonName": "Guppy",
+    "scientificName": "Poecilia reticulata",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/poecilia-reticulata/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          63,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          7.0,
+          8.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          8,
+          30
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.5,
+          2.5
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "flags": {
+      "longFinned": {
+        "value": true,
+        "source": "sf"
+      },
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "Avoid fin-nipping tankmates. Commercial stock is inbred. Group size not found."
+  },
+  {
+    "id": "xiphophorus-maculatus",
+    "commonName": "Platy",
+    "scientificName": "Xiphophorus maculatus",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/xiphophorus-maculatus/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/beginner-fish"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          7.0,
+          8.2
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          10,
+          30
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.0,
+          2.0
+        ],
+        "source": "sf"
+      },
+      {
+        "value": [
+          3,
+          3
+        ],
+        "source": "aco"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "temperament": {
+      "value": "peaceful",
+      "source": "sf"
+    },
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "Best for beginners \"as long as the ph remains above neutral\". Keep more females than males."
+  },
+  {
+    "id": "poecilia-wingei",
+    "commonName": "Endler's livebearer",
+    "scientificName": "Poecilia wingei",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/poecilia-wingei/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          75,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          7.0,
+          8.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          15,
+          35
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1,
+          1.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45.7,
+        "widthCm": 30.5
+      }
+    ],
+    "notes": "Males about 1 in, females 1.8 in. Too small for a general community; crossbreeds with guppies. Keep several females."
+  },
+  {
+    "id": "trichogaster-lalius",
+    "commonName": "Dwarf gourami",
+    "scientificName": "Trichogaster lalius",
+    "kind": "fish",
+    "tier": "beginner",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/trichogaster-lalius/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          2,
+          18
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.4,
+          3
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 61.0,
+        "widthCm": 30.5
+      }
+    ],
+    "flags": {
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "Shy and territorial; a male and female pair, never two males. SF gives only a \"reserved recommendation\" because of health issues. pH range is for tank-bred fish."
+  },
+  {
+    "id": "neocaridina-davidi",
+    "commonName": "Cherry shrimp",
+    "scientificName": "Neocaridina davidi",
+    "kind": "shrimp",
+    "tier": "beginner",
+    "sources": {
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "sk": "https://www.shrimpkeepers.com/guides/neocaridina/"
+    },
+    "tempF": [
+      {
+        "source": "aco",
+        "optimal": [
+          72,
+          76
+        ],
+        "tolerated": [
+          60,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aco",
+        "tolerated": [
+          6.5,
+          8.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "aco",
+        "tolerated": [
+          6
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "aco",
+        "tolerated": [
+          2
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.6,
+          1.6
+        ],
+        "source": "aco"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sk",
+        "gallons": 5
+      }
+    ],
+    "minGroupSize": {
+      "value": 10,
+      "source": "aco"
+    },
+    "flags": {
+      "needsMatureTank": {
+        "value": true,
+        "source": "aco"
+      }
+    },
+    "notes": "Prey for any fish that fits it in its mouth. Low GH causes failed molts. Copper is \"lethal to all invertebrates\". Overfeeding is \"the #1 cause\" of deaths. Belongs in \"a mature tank that has been running for many months\". ShrimpKeepers: active soil \"can lower pH too much\"."
+  },
+  {
+    "id": "caridina-multidentata",
+    "commonName": "Amano shrimp",
+    "scientificName": "Caridina multidentata",
+    "kind": "shrimp",
+    "tier": "beginner",
+    "sources": {
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp-care"
+    },
+    "tempF": [
+      {
+        "source": "aco",
+        "tolerated": [
+          65,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aco",
+        "tolerated": [
+          6,
+          8
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.5,
+          2
+        ],
+        "source": "aco"
+      }
+    ],
+    "notes": "\"Super hardy\" algae eater; wants \"moderate to hard GH\". Outcompetes cherry shrimp for food, escapes (needs a lid) and cannot breed in freshwater. Fits \"most nano tanks\"."
+  },
+  {
+    "id": "neritidae",
+    "commonName": "Nerite snail",
+    "scientificName": "Neritidae",
+    "kind": "snail",
+    "tier": "beginner",
+    "sources": {
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/nerite-snail-care-guide"
+    },
+    "ph": [
+      {
+        "source": "aco",
+        "tolerated": [
+          7.0
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.5,
+          1.5
+        ],
+        "source": "aco"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "aco",
+        "gallons": 2
+      }
+    ],
+    "flags": {
+      "eatsPlants": {
+        "value": false,
+        "source": "aco"
+      }
+    },
+    "notes": "Needs \"lots of minerals\"; shells crack in soft water. Plant-safe and won't overpopulate, but starves when algae runs out. ACO: 2–3 gal."
+  },
+  {
+    "id": "pomacea-diffusa",
+    "commonName": "Mystery snail",
+    "scientificName": "Pomacea diffusa",
+    "kind": "snail",
+    "tier": "beginner",
+    "sources": {
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/mystery-snail-care-guide"
+    },
+    "tempF": [
+      {
+        "source": "aco",
+        "tolerated": [
+          70,
+          78
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aco",
+        "tolerated": [
+          7.2
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "aco",
+        "tolerated": [
+          8
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2,
+          2
+        ],
+        "source": "aco"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "aco",
+        "gallons": 5
+      }
+    ],
+    "flags": {
+      "eatsPlants": {
+        "value": true,
+        "source": "aco"
+      },
+      "digs": {
+        "value": true,
+        "source": "aco"
+      }
+    },
+    "notes": "Eats duckweed and other floaters; may uproot plants in loose substrate. Shell pitting in soft water. 5 gal for 1–2 snails."
+  },
+  {
+    "id": "apistogramma-cacatuoides",
+    "commonName": "Cockatoo dwarf cichlid",
+    "scientificName": "Apistogramma cacatuoides",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          84
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          0,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.0,
+          3.0
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 2,
+      "source": "sf"
+    },
+    "flags": {
+      "needsLiveFood": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "territorial",
+      "liveFood"
+    ],
+    "notes": "Keep as a pair; male 3 in, female 2 in. Bred fish are \"relatively unfussy\" on pH; wild fish may need pH 5.0–6.0 to breed. Females \"hyper-aggressive\" after spawning in small tanks. Small weekly water changes, gentle flow. Dwarf pencilfish make good dither fish."
+  },
+  {
+    "id": "mikrogeophagus-ramirezi",
+    "commonName": "German blue ram",
+    "scientificName": "Mikrogeophagus ramirezi",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/ram-cichlid-care-guide",
+      "aa": "https://www.aquariumadvice.com/articles/german-blue-ram-mikrogeoghagus-ramirezi/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          81,
+          86
+        ]
+      },
+      {
+        "source": "aco",
+        "tolerated": [
+          84,
+          86
+        ]
+      },
+      {
+        "source": "aa",
+        "tolerated": [
+          77,
+          84
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          4.0,
+          7.0
+        ]
+      },
+      {
+        "source": "aa",
+        "tolerated": [
+          5.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      },
+      {
+        "source": "aa",
+        "tolerated": [
+          5,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.4,
+          1.6
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 2,
+      "source": "sf"
+    },
+    "flags": {
+      "digs": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank",
+      "softWater"
+    ],
+    "notes": "Needs \"pristine water quality\"; HLLE-like erosion in poor water. Avoid most other cichlids."
+  },
+  {
+    "id": "mikrogeophagus-altispinosus",
+    "commonName": "Bolivian ram",
+    "scientificName": "Mikrogeophagus altispinosus",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/mikrogeophagus-altispinosus/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          75,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.8,
+          3.1
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 90,
+        "widthCm": 45
+      }
+    ],
+    "flags": {
+      "needsSand": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank"
+    ],
+    "notes": "Single or pair in a 90 × 45 cm base; a group of 6–8 needs 120 cm+. Gravel \"can inhibit feeding\"."
+  },
+  {
+    "id": "carinotetraodon-travancoricus",
+    "commonName": "Pea puffer",
+    "scientificName": "Carinotetraodon travancoricus",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus/",
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer-care-guide"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          82
+        ]
+      },
+      {
+        "source": "aco",
+        "tolerated": [
+          74,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.8,
+          8.0
+        ]
+      },
+      {
+        "source": "aco",
+        "optimal": [
+          7.2,
+          7.5
+        ],
+        "tolerated": [
+          6.5,
+          8.4
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          25
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1,
+          1
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "aco",
+        "gallons": 5
+      }
+    ],
+    "temperament": {
+      "value": "aggressive",
+      "source": "aco"
+    },
+    "flags": {
+      "finNipper": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsLiveFood": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "liveFood",
+      "territorial"
+    ],
+    "notes": "ACO: \"Most are pretty aggressive and territorial\"; 5 gal plus 3 per extra puffer (\"six to seven… in a 20-gallon\"); 1 male to 2–3 females. SF: 2–3 gal each. Rejects dried food; very sensitive to water quality. Best in a species-only tank; results with shrimp are mixed. Sources disagree on whether snails are needed to wear down its teeth."
+  },
+  {
+    "id": "dario-dario",
+    "commonName": "Scarlet badis",
+    "scientificName": "Dario dario",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/dario-dario/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          64,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.5,
+          8.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.5,
+          0.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "flags": {
+      "needsLiveFood": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "liveFood",
+      "territorial",
+      "poorCompetitor"
+    ],
+    "notes": "Micropredator: small live or frozen food, no bloodworm. Rival males are \"very aggressive\"; keep one male, a pair, or a male with several females. Easily outcompeted, so only small, calm mid-water tankmates."
+  },
+  {
+    "id": "boraras-brigittae",
+    "commonName": "Chili rasbora",
+    "scientificName": "Boraras brigittae",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/boraras-brigittae/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          4.0,
+          7.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.6,
+          0.8
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "flags": {
+      "eatsShrimp": {
+        "value": false,
+        "source": "sf"
+      },
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsLiveFood": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank"
+    ],
+    "notes": "Shrimp-compatible. Should not be fed dried food only."
+  },
+  {
+    "id": "trichopsis-pumila",
+    "commonName": "Sparkling gourami",
+    "scientificName": "Trichopsis pumila",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/trichopsis-pumila/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.4,
+          1.6
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 2,
+      "source": "sf"
+    },
+    "flags": {
+      "eatsShrimp": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "notes": "A pair or small group. Some keepers report it \"preys on small freshwater shrimp\". Jumps; needs a lid and a humid air layer. Gentle flow."
+  },
+  {
+    "id": "hemigrammus-bleheri",
+    "commonName": "Rummy-nose tetra",
+    "scientificName": "Hemigrammus bleheri",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/hemigrammus-bleheri/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          74,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5.5,
+          7.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          2,
+          15
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2,
+          2
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 90
+      }
+    ],
+    "minGroupSize": {
+      "value": 10,
+      "source": "sf"
+    },
+    "intermediateReasons": [
+      "softWater"
+    ],
+    "notes": "Colour fades in poor or alkaline water; weekly water changes \"are a must\"."
+  },
+  {
+    "id": "iriatherina-werneri",
+    "commonName": "Threadfin rainbowfish",
+    "scientificName": "Iriatherina werneri",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/iriatherina-werneri/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          86
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5.0,
+          8.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.2,
+          1.6
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 60,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 6,
+      "source": "sf"
+    },
+    "flags": {
+      "longFinned": {
+        "value": true,
+        "source": "sf"
+      },
+      "eatsShrimp": {
+        "value": false,
+        "source": "sf"
+      },
+      "needsLiveFood": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank",
+      "liveFood"
+    ],
+    "notes": "Ideally 10+. Males' long fins get nipped. Tiny mouth; mostly live food. Good with pygmy corys, otos, Pseudomugil and shrimp."
+  },
+  {
+    "id": "fundulopanchax-gardneri",
+    "commonName": "Gardner's killifish",
+    "scientificName": "Fundulopanchax gardneri",
+    "kind": "fish",
+    "tier": "easyIntermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/fundulopanchax-gardneri/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.2,
+          2.2
+        ],
+        "source": "sf"
+      }
+    ],
+    "intermediateReasons": [
+      "territorial"
+    ],
+    "notes": "Robust but \"not suitable for the general community\"; a \"prodigious jumper\", so a tight lid. 2–3 females per male. A good first killifish. Tank size not recorded by the source."
+  },
+  {
+    "id": "pseudomugil-gertrudae",
+    "commonName": "Spotted blue-eye",
+    "scientificName": "Pseudomugil gertrudae",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          70,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          4.5,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          5,
+          12
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.2,
+          1.5
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 8,
+      "source": "sf"
+    },
+    "flags": {
+      "eatsShrimp": {
+        "value": false,
+        "source": "sf"
+      },
+      "needsLiveFood": {
+        "value": true,
+        "source": "sf"
+      },
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank",
+      "liveFood"
+    ],
+    "notes": "Hardness range is for the ornamental strain. Mostly live food. Shrimp-compatible."
+  },
+  {
+    "id": "nannostomus-marginatus",
+    "commonName": "Dwarf pencilfish",
+    "scientificName": "Nannostomus marginatus",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/nannostomus-marginatus/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          72,
+          82
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          4.0,
+          7.0
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          0.8,
+          1.0
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "minGroupSize": {
+      "value": 10,
+      "source": "sf"
+    },
+    "swimLevel": {
+      "value": "middle",
+      "source": "sf"
+    },
+    "flags": {
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank"
+    ],
+    "notes": "Middle to upper levels; \"does not actively predate fry\". An ideal dither fish for Apistogramma."
+  },
+  {
+    "id": "sewellia-lineolata",
+    "commonName": "Reticulated hillstream loach",
+    "scientificName": "Sewellia lineolata",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "sf": "https://www.seriouslyfish.com/species/sewellia-lineolata/"
+    },
+    "tempF": [
+      {
+        "source": "sf",
+        "tolerated": [
+          68,
+          75
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sf",
+        "tolerated": [
+          6.0,
+          7.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sf",
+        "tolerated": [
+          1,
+          10
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          2.2,
+          2.6
+        ],
+        "source": "sf"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 75,
+        "widthCm": 30
+      }
+    ],
+    "flags": {
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      },
+      "stockQualityWarning": {
+        "value": true,
+        "source": "sf"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank",
+      "equipment"
+    ],
+    "notes": "Needs 15–20× turnover, high oxygen and algae-covered rock in a mature tank. Climbs glass. Often sold emaciated."
+  },
+  {
+    "id": "otocinclus",
+    "commonName": "Otocinclus",
+    "scientificName": "Otocinclus spp.",
+    "kind": "fish",
+    "tier": "intermediate",
+    "sources": {
+      "aco": "https://www.aquariumcoop.com/blogs/aquarium/otocinclus-catfish-care-guide",
+      "sf": "https://www.seriouslyfish.com/species/otocinclus-cocama/"
+    },
+    "tempF": [
+      {
+        "source": "aco",
+        "tolerated": [
+          70,
+          79
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "aco",
+        "tolerated": [
+          6.0,
+          7.5
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1.5,
+          2
+        ],
+        "source": "aco"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sf",
+        "lengthCm": 45,
+        "widthCm": 30
+      }
+    ],
+    "temperament": {
+      "value": "peaceful",
+      "source": "aco"
+    },
+    "flags": {
+      "needsMatureTank": {
+        "value": true,
+        "source": "sf"
+      },
+      "stockQualityWarning": {
+        "value": true,
+        "source": "aco"
+      }
+    },
+    "intermediateReasons": [
+      "matureTank"
+    ],
+    "notes": "Covers O. vittatus, O. macrospilus and O. cocama; the tank size is from SF's zebra oto (O. cocama) page. Mostly wild-caught and arrives starved; \"a couple of plump and healthy otos\" beats a starving school. SF: \"should never be added to an immature aquarium\"."
+  },
+  {
+    "id": "caridina-cantonensis",
+    "commonName": "Crystal red shrimp",
+    "scientificName": "Caridina cantonensis",
+    "kind": "shrimp",
+    "tier": "intermediate",
+    "sources": {
+      "sk": "https://www.shrimpkeepers.com/species/crystal-red-shrimp/",
+      "skc": "https://www.shrimpkeepers.com/guides/caridina/",
+      "tsg": "https://theshrimpguide.com/posts/crystal-red-shrimp-guide/",
+      "tsgc": "https://theshrimpguide.com/tools/shrimp-water-parameters-chart/",
+      "fa": "https://fastaquatics.com/care/crystal-red-shrimp-breeding/"
+    },
+    "tempF": [
+      {
+        "source": "sk",
+        "optimal": [
+          70,
+          73
+        ],
+        "tolerated": [
+          68,
+          75
+        ]
+      },
+      {
+        "source": "skc",
+        "tolerated": [
+          68,
+          76
+        ]
+      },
+      {
+        "source": "tsg",
+        "optimal": [
+          70,
+          72
+        ],
+        "tolerated": [
+          68,
+          74
+        ]
+      },
+      {
+        "source": "tsgc",
+        "tolerated": [
+          68,
+          74
+        ]
+      },
+      {
+        "source": "fa",
+        "tolerated": [
+          68,
+          75
+        ]
+      }
+    ],
+    "ph": [
+      {
+        "source": "sk",
+        "optimal": [
+          6.0,
+          6.4
+        ],
+        "tolerated": [
+          5.8,
+          6.8
+        ]
+      },
+      {
+        "source": "skc",
+        "optimal": [
+          6.0,
+          6.5
+        ],
+        "tolerated": [
+          5.8,
+          6.8
+        ]
+      },
+      {
+        "source": "tsg",
+        "optimal": [
+          6.0,
+          6.4
+        ],
+        "tolerated": [
+          5.8,
+          6.8
+        ]
+      },
+      {
+        "source": "tsgc",
+        "tolerated": [
+          5.8,
+          6.8
+        ]
+      },
+      {
+        "source": "fa",
+        "tolerated": [
+          5.8,
+          6.5
+        ]
+      }
+    ],
+    "gh": [
+      {
+        "source": "sk",
+        "tolerated": [
+          4,
+          6
+        ]
+      },
+      {
+        "source": "skc",
+        "tolerated": [
+          4,
+          6
+        ]
+      },
+      {
+        "source": "tsg",
+        "tolerated": [
+          4,
+          6
+        ]
+      },
+      {
+        "source": "tsgc",
+        "tolerated": [
+          4,
+          6
+        ]
+      },
+      {
+        "source": "fa",
+        "tolerated": [
+          4,
+          6
+        ]
+      }
+    ],
+    "kh": [
+      {
+        "source": "sk",
+        "tolerated": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "skc",
+        "tolerated": [
+          0,
+          1
+        ]
+      },
+      {
+        "source": "tsg",
+        "tolerated": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "tsgc",
+        "tolerated": [
+          0,
+          1
+        ]
+      },
+      {
+        "source": "fa",
+        "tolerated": [
+          0,
+          1
+        ]
+      }
+    ],
+    "adultSizeIn": [
+      {
+        "value": [
+          1,
+          1.25
+        ],
+        "source": "sk"
+      }
+    ],
+    "minTank": [
+      {
+        "source": "sk",
+        "gallons": 10
+      },
+      {
+        "source": "tsg",
+        "gallons": 10
+      }
+    ],
+    "intermediateReasons": [
+      "softWater",
+      "equipment"
+    ],
+    "notes": "Needs RO water remineralized with GH-only salts and an active buffering substrate; ADA-type soils buffer pH to about 6.6–6.8 for 12–18 months. Above 78°F brings \"stress, reduced breeding, shortened lifespan\". New active soil leaches ammonia; allow 4–6 weeks of cycling. \"If you set up a tank for Neocaridina and add Caridina, the Caridina will die.\" TDS 100–150 ppm. Fast Aquatics recommends no fish for breeding colonies."
+  }
+]

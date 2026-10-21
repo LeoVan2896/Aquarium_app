@@ -1,7 +1,6 @@
 import 'config.dart';
 import 'fit_checks.dart';
 import 'species.dart';
-import 'units.dart';
 
 // Returns only problems: an empty list means no known conflict with the stock.
 List<Check> animalCompatibility(
@@ -41,12 +40,14 @@ Check? _temperatureOverlap(AnimalSpecies a, AnimalSpecies b) {
   final spanA = _preferredTemp(a);
   final spanB = _preferredTemp(b);
   if (spanA == null || spanB == null) return null;
-  final overlaps = spanA.min <= spanB.max! && spanB.min <= spanA.max!;
+  final overlaps =
+      spanA.min <= (spanB.max ?? double.infinity) &&
+      spanB.min <= (spanA.max ?? double.infinity);
   if (overlaps) return null;
   return Check(
     CheckKind.temperatureOverlap,
     CheckStatus.fail,
-    '${a.commonName} wants ${_range(spanA)}°F and ${b.commonName} wants ${_range(spanB)}°F; there\'s no temperature that suits both.',
+    '${a.commonName} wants ${formatSpan(spanA)}°F and ${b.commonName} wants ${formatSpan(spanB)}°F; there\'s no temperature that suits both.',
   );
 }
 
@@ -173,6 +174,3 @@ List<Check> _plantDamage(AnimalSpecies animal, List<String> plantNames) {
       ),
   ];
 }
-
-String _range(Span span) =>
-    '${formatNumber(span.min)}–${formatNumber(span.max!)}';

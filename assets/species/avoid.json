@@ -1,1 +1,141 @@
-[]
+[
+  {
+    "scientificName": "Pterygoplichthys pardalis",
+    "commonNames": [
+      "Common pleco"
+    ],
+    "kind": "animal",
+    "reason": "Grows past 20 in yet is often bought for 10 gal tanks. Get a bristlenose instead.",
+    "sourceUrl": "https://www.practicalfishkeeping.co.uk/features/the-common-plec-a-big-problem/"
+  },
+  {
+    "scientificName": "Pangasianodon hypophthalmus",
+    "commonNames": [
+      "Iridescent shark"
+    ],
+    "kind": "animal",
+    "reason": "\"Easily tops 90 cm\" and lives 20+ years.",
+    "sourceUrl": "https://www.seriouslyfish.com/species/pangasianodon-hypophthalmus/"
+  },
+  {
+    "scientificName": "Chromobotia macracanthus",
+    "commonNames": [
+      "Clown loach"
+    ],
+    "kind": "animal",
+    "reason": "Reaches 8–12 in; a group needs a 180 × 60 cm base. Never for new tanks.",
+    "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus/"
+  },
+  {
+    "scientificName": "Balantiocheilos melanopterus",
+    "commonNames": [
+      "Bala shark",
+      "Silver shark"
+    ],
+    "kind": "animal",
+    "reason": "Among the fish \"most frequently returned having outgrown small aquaria\".",
+    "sourceUrl": "https://www.seriouslyfish.com/species/balantiocheilos-melanopterus/"
+  },
+  {
+    "scientificName": "Carassius auratus",
+    "commonNames": [
+      "Goldfish"
+    ],
+    "kind": "animal",
+    "reason": "Grows 12–14 in and needs about 30 gal per fish; eats plants and small tankmates.",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/beginner-fish"
+  },
+  {
+    "scientificName": "Ophiopogon japonicus",
+    "commonNames": [
+      "Mondo grass",
+      "Fountain grass"
+    ],
+    "kind": "plant",
+    "reason": "A land plant; dies within about a month underwater.",
+    "sourceUrl": "https://aquariadise.com/mondo-grass-aquarium/"
+  },
+  {
+    "scientificName": "Dracaena",
+    "commonNames": [
+      "Dracaena",
+      "Lucky bamboo"
+    ],
+    "kind": "plant",
+    "reason": "A land plant; lucky bamboo lasts about 6 months submerged, then dies.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Pilea cadierei",
+    "commonNames": [
+      "Aluminum plant"
+    ],
+    "kind": "plant",
+    "reason": "A land plant; lasts a few weeks, then melts.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Acorus gramineus",
+    "commonNames": [
+      "Japanese rush"
+    ],
+    "kind": "plant",
+    "reason": "A land plant that lasts up to a year underwater. Not the aquatic Blyxa japonica.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Caladium",
+    "commonNames": [
+      "Caladium"
+    ],
+    "kind": "plant",
+    "reason": "A land plant; lasts up to 6 weeks underwater.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Chamaedorea elegans",
+    "commonNames": [
+      "Parlor palm"
+    ],
+    "kind": "plant",
+    "reason": "A land plant sold as aquatic.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Syngonium podophyllum",
+    "commonNames": [
+      "Arrowhead vine"
+    ],
+    "kind": "plant",
+    "reason": "A land plant sold as aquatic.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Aglaonema",
+    "commonNames": [
+      "Chinese evergreen"
+    ],
+    "kind": "plant",
+    "reason": "A land plant sold as aquatic.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Lycopodium",
+    "commonNames": [
+      "Club moss"
+    ],
+    "kind": "plant",
+    "reason": "A land plant sold as aquatic.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  },
+  {
+    "scientificName": "Spathiphyllum",
+    "commonNames": [
+      "Peace lily",
+      "Brazilian sword"
+    ],
+    "kind": "plant",
+    "reason": "A land plant, sometimes sold as \"Brazilian sword\"; lasts about 3 weeks underwater.",
+    "sourceUrl": "https://en.microcosmaquariumexplorer.com/wiki/Worst_Aquarium_Plants"
+  }
+]

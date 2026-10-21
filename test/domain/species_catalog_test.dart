@@ -264,7 +264,7 @@ void main() {
       );
     });
 
-    test('a water range must be closed and have optimal or tolerated', () {
+    test('a water range needs optimal or tolerated', () {
       expect(
         issuesFor(
           animals: [
@@ -278,10 +278,7 @@ void main() {
               ],
           ],
         ),
-        [
-          'animals/fixture-tetra.ph[0].tolerated: needs both min and max',
-          'animals/fixture-tetra.ph[1]: needs optimal or tolerated',
-        ],
+        ['animals/fixture-tetra.ph[1]: needs optimal or tolerated'],
       );
     });
 
