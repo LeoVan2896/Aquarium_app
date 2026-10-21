@@ -189,4 +189,62 @@ void main() {
       expect(rows.last.correctsId, readingId);
     });
   });
+
+  group('stock entries', () {
+    late Tank tank;
+    late StockEntry added;
+
+    setUp(() async {
+      tank = await db.select(db.tanks).getSingle();
+      await db.addStockEntry(
+        StockEntriesCompanion.insert(
+          tankId: tank.id,
+          speciesId: 'fixture-fish',
+          speciesType: SpeciesType.animal,
+          change: 6,
+          occurredAt: DateTime(2026, 11, 1),
+        ),
+      );
+      added = await db.select(db.stockEntries).getSingle();
+    });
+
+    test('new tank fields default to unknown light and no CO₂', () {
+      expect(tank.lightLevel, isNull);
+      expect(tank.hasCo2, isFalse);
+      expect(tank.footprintLengthIn, isNull);
+      expect(tank.footprintWidthIn, isNull);
+    });
+
+    test('reject update and delete', () async {
+      expect(
+        () => (db.update(db.stockEntries)..where((s) => s.id.equals(added.id)))
+            .write(const StockEntriesCompanion(change: Value(5))),
+        throwsA(isA<SqliteException>()),
+      );
+      expect(
+        () => (db.delete(
+          db.stockEntries,
+        )..where((s) => s.id.equals(added.id))).go(),
+        throwsA(isA<SqliteException>()),
+      );
+    });
+
+    test(
+      'correctStockEntry copies the original and points back at it',
+      () async {
+        await db.correctStockEntry(
+          added,
+          change: 5,
+          occurredAt: DateTime(2026, 11, 1),
+          note: 'miscounted',
+        );
+
+        final rows = await db.select(db.stockEntries).get();
+        expect(rows, hasLength(2));
+        expect(rows.last.correctsId, added.id);
+        expect(rows.last.speciesId, 'fixture-fish');
+        expect(rows.last.change, 5);
+      },
+    );
+  });
 }

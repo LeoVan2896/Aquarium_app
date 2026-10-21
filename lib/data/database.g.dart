@@ -190,6 +190,51 @@ class $TanksTable extends Tanks with TableInfo<$TanksTable, Tank> {
     defaultValue: currentDateAndTime,
   );
   @override
+  late final GeneratedColumnWithTypeConverter<LightLevel?, String> lightLevel =
+      GeneratedColumn<String>(
+        'light_level',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      ).withConverter<LightLevel?>($TanksTable.$converterlightLeveln);
+  static const VerificationMeta _hasCo2Meta = const VerificationMeta('hasCo2');
+  @override
+  late final GeneratedColumn<bool> hasCo2 = GeneratedColumn<bool>(
+    'has_co2',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("has_co2" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _footprintLengthInMeta = const VerificationMeta(
+    'footprintLengthIn',
+  );
+  @override
+  late final GeneratedColumn<double> footprintLengthIn =
+      GeneratedColumn<double>(
+        'footprint_length_in',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _footprintWidthInMeta = const VerificationMeta(
+    'footprintWidthIn',
+  );
+  @override
+  late final GeneratedColumn<double> footprintWidthIn = GeneratedColumn<double>(
+    'footprint_width_in',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  @override
   List<GeneratedColumn> get $columns => [
     id,
     name,
@@ -207,6 +252,10 @@ class $TanksTable extends Tanks with TableInfo<$TanksTable, Tank> {
     stockedAt,
     archived,
     createdAt,
+    lightLevel,
+    hasCo2,
+    footprintLengthIn,
+    footprintWidthIn,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -324,6 +373,30 @@ class $TanksTable extends Tanks with TableInfo<$TanksTable, Tank> {
         createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
       );
     }
+    if (data.containsKey('has_co2')) {
+      context.handle(
+        _hasCo2Meta,
+        hasCo2.isAcceptableOrUnknown(data['has_co2']!, _hasCo2Meta),
+      );
+    }
+    if (data.containsKey('footprint_length_in')) {
+      context.handle(
+        _footprintLengthInMeta,
+        footprintLengthIn.isAcceptableOrUnknown(
+          data['footprint_length_in']!,
+          _footprintLengthInMeta,
+        ),
+      );
+    }
+    if (data.containsKey('footprint_width_in')) {
+      context.handle(
+        _footprintWidthInMeta,
+        footprintWidthIn.isAcceptableOrUnknown(
+          data['footprint_width_in']!,
+          _footprintWidthInMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -401,6 +474,24 @@ class $TanksTable extends Tanks with TableInfo<$TanksTable, Tank> {
         DriftSqlType.dateTime,
         data['${effectivePrefix}created_at'],
       )!,
+      lightLevel: $TanksTable.$converterlightLeveln.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}light_level'],
+        ),
+      ),
+      hasCo2: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}has_co2'],
+      )!,
+      footprintLengthIn: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}footprint_length_in'],
+      ),
+      footprintWidthIn: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}footprint_width_in'],
+      ),
     );
   }
 
@@ -413,6 +504,10 @@ class $TanksTable extends Tanks with TableInfo<$TanksTable, Tank> {
       const EnumNameConverter<WaterSource>(WaterSource.values);
   static JsonTypeConverter2<CycleMethod, String, String> $convertercycleMethod =
       const EnumNameConverter<CycleMethod>(CycleMethod.values);
+  static JsonTypeConverter2<LightLevel, String, String> $converterlightLevel =
+      const EnumNameConverter<LightLevel>(LightLevel.values);
+  static JsonTypeConverter2<LightLevel?, String?, String?>
+  $converterlightLeveln = JsonTypeConverter2.asNullable($converterlightLevel);
 }
 
 class Tank extends DataClass implements Insertable<Tank> {
@@ -432,6 +527,10 @@ class Tank extends DataClass implements Insertable<Tank> {
   final DateTime? stockedAt;
   final bool archived;
   final DateTime createdAt;
+  final LightLevel? lightLevel;
+  final bool hasCo2;
+  final double? footprintLengthIn;
+  final double? footprintWidthIn;
   const Tank({
     required this.id,
     required this.name,
@@ -449,6 +548,10 @@ class Tank extends DataClass implements Insertable<Tank> {
     this.stockedAt,
     required this.archived,
     required this.createdAt,
+    this.lightLevel,
+    required this.hasCo2,
+    this.footprintLengthIn,
+    this.footprintWidthIn,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -491,6 +594,18 @@ class Tank extends DataClass implements Insertable<Tank> {
     }
     map['archived'] = Variable<bool>(archived);
     map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || lightLevel != null) {
+      map['light_level'] = Variable<String>(
+        $TanksTable.$converterlightLeveln.toSql(lightLevel),
+      );
+    }
+    map['has_co2'] = Variable<bool>(hasCo2);
+    if (!nullToAbsent || footprintLengthIn != null) {
+      map['footprint_length_in'] = Variable<double>(footprintLengthIn);
+    }
+    if (!nullToAbsent || footprintWidthIn != null) {
+      map['footprint_width_in'] = Variable<double>(footprintWidthIn);
+    }
     return map;
   }
 
@@ -526,6 +641,16 @@ class Tank extends DataClass implements Insertable<Tank> {
           : Value(stockedAt),
       archived: Value(archived),
       createdAt: Value(createdAt),
+      lightLevel: lightLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lightLevel),
+      hasCo2: Value(hasCo2),
+      footprintLengthIn: footprintLengthIn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(footprintLengthIn),
+      footprintWidthIn: footprintWidthIn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(footprintWidthIn),
     );
   }
 
@@ -555,6 +680,14 @@ class Tank extends DataClass implements Insertable<Tank> {
       stockedAt: serializer.fromJson<DateTime?>(json['stockedAt']),
       archived: serializer.fromJson<bool>(json['archived']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      lightLevel: $TanksTable.$converterlightLeveln.fromJson(
+        serializer.fromJson<String?>(json['lightLevel']),
+      ),
+      hasCo2: serializer.fromJson<bool>(json['hasCo2']),
+      footprintLengthIn: serializer.fromJson<double?>(
+        json['footprintLengthIn'],
+      ),
+      footprintWidthIn: serializer.fromJson<double?>(json['footprintWidthIn']),
     );
   }
   @override
@@ -581,6 +714,12 @@ class Tank extends DataClass implements Insertable<Tank> {
       'stockedAt': serializer.toJson<DateTime?>(stockedAt),
       'archived': serializer.toJson<bool>(archived),
       'createdAt': serializer.toJson<DateTime>(createdAt),
+      'lightLevel': serializer.toJson<String?>(
+        $TanksTable.$converterlightLeveln.toJson(lightLevel),
+      ),
+      'hasCo2': serializer.toJson<bool>(hasCo2),
+      'footprintLengthIn': serializer.toJson<double?>(footprintLengthIn),
+      'footprintWidthIn': serializer.toJson<double?>(footprintWidthIn),
     };
   }
 
@@ -601,6 +740,10 @@ class Tank extends DataClass implements Insertable<Tank> {
     Value<DateTime?> stockedAt = const Value.absent(),
     bool? archived,
     DateTime? createdAt,
+    Value<LightLevel?> lightLevel = const Value.absent(),
+    bool? hasCo2,
+    Value<double?> footprintLengthIn = const Value.absent(),
+    Value<double?> footprintWidthIn = const Value.absent(),
   }) => Tank(
     id: id ?? this.id,
     name: name ?? this.name,
@@ -622,6 +765,14 @@ class Tank extends DataClass implements Insertable<Tank> {
     stockedAt: stockedAt.present ? stockedAt.value : this.stockedAt,
     archived: archived ?? this.archived,
     createdAt: createdAt ?? this.createdAt,
+    lightLevel: lightLevel.present ? lightLevel.value : this.lightLevel,
+    hasCo2: hasCo2 ?? this.hasCo2,
+    footprintLengthIn: footprintLengthIn.present
+        ? footprintLengthIn.value
+        : this.footprintLengthIn,
+    footprintWidthIn: footprintWidthIn.present
+        ? footprintWidthIn.value
+        : this.footprintWidthIn,
   );
   Tank copyWithCompanion(TanksCompanion data) {
     return Tank(
@@ -657,6 +808,16 @@ class Tank extends DataClass implements Insertable<Tank> {
       stockedAt: data.stockedAt.present ? data.stockedAt.value : this.stockedAt,
       archived: data.archived.present ? data.archived.value : this.archived,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      lightLevel: data.lightLevel.present
+          ? data.lightLevel.value
+          : this.lightLevel,
+      hasCo2: data.hasCo2.present ? data.hasCo2.value : this.hasCo2,
+      footprintLengthIn: data.footprintLengthIn.present
+          ? data.footprintLengthIn.value
+          : this.footprintLengthIn,
+      footprintWidthIn: data.footprintWidthIn.present
+          ? data.footprintWidthIn.value
+          : this.footprintWidthIn,
     );
   }
 
@@ -678,7 +839,11 @@ class Tank extends DataClass implements Insertable<Tank> {
           ..write('cycleMethod: $cycleMethod, ')
           ..write('stockedAt: $stockedAt, ')
           ..write('archived: $archived, ')
-          ..write('createdAt: $createdAt')
+          ..write('createdAt: $createdAt, ')
+          ..write('lightLevel: $lightLevel, ')
+          ..write('hasCo2: $hasCo2, ')
+          ..write('footprintLengthIn: $footprintLengthIn, ')
+          ..write('footprintWidthIn: $footprintWidthIn')
           ..write(')'))
         .toString();
   }
@@ -701,6 +866,10 @@ class Tank extends DataClass implements Insertable<Tank> {
     stockedAt,
     archived,
     createdAt,
+    lightLevel,
+    hasCo2,
+    footprintLengthIn,
+    footprintWidthIn,
   );
   @override
   bool operator ==(Object other) =>
@@ -721,7 +890,11 @@ class Tank extends DataClass implements Insertable<Tank> {
           other.cycleMethod == this.cycleMethod &&
           other.stockedAt == this.stockedAt &&
           other.archived == this.archived &&
-          other.createdAt == this.createdAt);
+          other.createdAt == this.createdAt &&
+          other.lightLevel == this.lightLevel &&
+          other.hasCo2 == this.hasCo2 &&
+          other.footprintLengthIn == this.footprintLengthIn &&
+          other.footprintWidthIn == this.footprintWidthIn);
 }
 
 class TanksCompanion extends UpdateCompanion<Tank> {
@@ -741,6 +914,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
   final Value<DateTime?> stockedAt;
   final Value<bool> archived;
   final Value<DateTime> createdAt;
+  final Value<LightLevel?> lightLevel;
+  final Value<bool> hasCo2;
+  final Value<double?> footprintLengthIn;
+  final Value<double?> footprintWidthIn;
   const TanksCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
@@ -758,6 +935,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
     this.stockedAt = const Value.absent(),
     this.archived = const Value.absent(),
     this.createdAt = const Value.absent(),
+    this.lightLevel = const Value.absent(),
+    this.hasCo2 = const Value.absent(),
+    this.footprintLengthIn = const Value.absent(),
+    this.footprintWidthIn = const Value.absent(),
   });
   TanksCompanion.insert({
     this.id = const Value.absent(),
@@ -776,6 +957,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
     this.stockedAt = const Value.absent(),
     this.archived = const Value.absent(),
     this.createdAt = const Value.absent(),
+    this.lightLevel = const Value.absent(),
+    this.hasCo2 = const Value.absent(),
+    this.footprintLengthIn = const Value.absent(),
+    this.footprintWidthIn = const Value.absent(),
   }) : name = Value(name),
        volumeGal = Value(volumeGal),
        substrateType = Value(substrateType),
@@ -799,6 +984,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
     Expression<DateTime>? stockedAt,
     Expression<bool>? archived,
     Expression<DateTime>? createdAt,
+    Expression<String>? lightLevel,
+    Expression<bool>? hasCo2,
+    Expression<double>? footprintLengthIn,
+    Expression<double>? footprintWidthIn,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -817,6 +1006,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
       if (stockedAt != null) 'stocked_at': stockedAt,
       if (archived != null) 'archived': archived,
       if (createdAt != null) 'created_at': createdAt,
+      if (lightLevel != null) 'light_level': lightLevel,
+      if (hasCo2 != null) 'has_co2': hasCo2,
+      if (footprintLengthIn != null) 'footprint_length_in': footprintLengthIn,
+      if (footprintWidthIn != null) 'footprint_width_in': footprintWidthIn,
     });
   }
 
@@ -837,6 +1030,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
     Value<DateTime?>? stockedAt,
     Value<bool>? archived,
     Value<DateTime>? createdAt,
+    Value<LightLevel?>? lightLevel,
+    Value<bool>? hasCo2,
+    Value<double?>? footprintLengthIn,
+    Value<double?>? footprintWidthIn,
   }) {
     return TanksCompanion(
       id: id ?? this.id,
@@ -855,6 +1052,10 @@ class TanksCompanion extends UpdateCompanion<Tank> {
       stockedAt: stockedAt ?? this.stockedAt,
       archived: archived ?? this.archived,
       createdAt: createdAt ?? this.createdAt,
+      lightLevel: lightLevel ?? this.lightLevel,
+      hasCo2: hasCo2 ?? this.hasCo2,
+      footprintLengthIn: footprintLengthIn ?? this.footprintLengthIn,
+      footprintWidthIn: footprintWidthIn ?? this.footprintWidthIn,
     );
   }
 
@@ -913,6 +1114,20 @@ class TanksCompanion extends UpdateCompanion<Tank> {
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
     }
+    if (lightLevel.present) {
+      map['light_level'] = Variable<String>(
+        $TanksTable.$converterlightLeveln.toSql(lightLevel.value),
+      );
+    }
+    if (hasCo2.present) {
+      map['has_co2'] = Variable<bool>(hasCo2.value);
+    }
+    if (footprintLengthIn.present) {
+      map['footprint_length_in'] = Variable<double>(footprintLengthIn.value);
+    }
+    if (footprintWidthIn.present) {
+      map['footprint_width_in'] = Variable<double>(footprintWidthIn.value);
+    }
     return map;
   }
 
@@ -934,7 +1149,11 @@ class TanksCompanion extends UpdateCompanion<Tank> {
           ..write('cycleMethod: $cycleMethod, ')
           ..write('stockedAt: $stockedAt, ')
           ..write('archived: $archived, ')
-          ..write('createdAt: $createdAt')
+          ..write('createdAt: $createdAt, ')
+          ..write('lightLevel: $lightLevel, ')
+          ..write('hasCo2: $hasCo2, ')
+          ..write('footprintLengthIn: $footprintLengthIn, ')
+          ..write('footprintWidthIn: $footprintWidthIn')
           ..write(')'))
         .toString();
   }
@@ -3327,6 +3546,565 @@ class RemindersCompanion extends UpdateCompanion<Reminder> {
   }
 }
 
+class $StockEntriesTable extends StockEntries
+    with TableInfo<$StockEntriesTable, StockEntry> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $StockEntriesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _tankIdMeta = const VerificationMeta('tankId');
+  @override
+  late final GeneratedColumn<int> tankId = GeneratedColumn<int>(
+    'tank_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES tanks (id)',
+    ),
+  );
+  static const VerificationMeta _speciesIdMeta = const VerificationMeta(
+    'speciesId',
+  );
+  @override
+  late final GeneratedColumn<String> speciesId = GeneratedColumn<String>(
+    'species_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<SpeciesType, String> speciesType =
+      GeneratedColumn<String>(
+        'species_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<SpeciesType>($StockEntriesTable.$converterspeciesType);
+  static const VerificationMeta _changeMeta = const VerificationMeta('change');
+  @override
+  late final GeneratedColumn<int> change = GeneratedColumn<int>(
+    'change',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _occurredAtMeta = const VerificationMeta(
+    'occurredAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> occurredAt = GeneratedColumn<DateTime>(
+    'occurred_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enteredAtMeta = const VerificationMeta(
+    'enteredAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> enteredAt = GeneratedColumn<DateTime>(
+    'entered_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _correctsIdMeta = const VerificationMeta(
+    'correctsId',
+  );
+  @override
+  late final GeneratedColumn<int> correctsId = GeneratedColumn<int>(
+    'corrects_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES stock_entries (id)',
+    ),
+  );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    tankId,
+    speciesId,
+    speciesType,
+    change,
+    occurredAt,
+    enteredAt,
+    correctsId,
+    note,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'stock_entries';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<StockEntry> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('tank_id')) {
+      context.handle(
+        _tankIdMeta,
+        tankId.isAcceptableOrUnknown(data['tank_id']!, _tankIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_tankIdMeta);
+    }
+    if (data.containsKey('species_id')) {
+      context.handle(
+        _speciesIdMeta,
+        speciesId.isAcceptableOrUnknown(data['species_id']!, _speciesIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_speciesIdMeta);
+    }
+    if (data.containsKey('change')) {
+      context.handle(
+        _changeMeta,
+        change.isAcceptableOrUnknown(data['change']!, _changeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_changeMeta);
+    }
+    if (data.containsKey('occurred_at')) {
+      context.handle(
+        _occurredAtMeta,
+        occurredAt.isAcceptableOrUnknown(data['occurred_at']!, _occurredAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_occurredAtMeta);
+    }
+    if (data.containsKey('entered_at')) {
+      context.handle(
+        _enteredAtMeta,
+        enteredAt.isAcceptableOrUnknown(data['entered_at']!, _enteredAtMeta),
+      );
+    }
+    if (data.containsKey('corrects_id')) {
+      context.handle(
+        _correctsIdMeta,
+        correctsId.isAcceptableOrUnknown(data['corrects_id']!, _correctsIdMeta),
+      );
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  StockEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return StockEntry(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      tankId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}tank_id'],
+      )!,
+      speciesId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}species_id'],
+      )!,
+      speciesType: $StockEntriesTable.$converterspeciesType.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}species_type'],
+        )!,
+      ),
+      change: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}change'],
+      )!,
+      occurredAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}occurred_at'],
+      )!,
+      enteredAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}entered_at'],
+      )!,
+      correctsId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}corrects_id'],
+      ),
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+    );
+  }
+
+  @override
+  $StockEntriesTable createAlias(String alias) {
+    return $StockEntriesTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<SpeciesType, String, String> $converterspeciesType =
+      const EnumNameConverter<SpeciesType>(SpeciesType.values);
+}
+
+class StockEntry extends DataClass implements Insertable<StockEntry> {
+  final int id;
+  final int tankId;
+  final String speciesId;
+  final SpeciesType speciesType;
+  final int change;
+  final DateTime occurredAt;
+  final DateTime enteredAt;
+  final int? correctsId;
+  final String? note;
+  const StockEntry({
+    required this.id,
+    required this.tankId,
+    required this.speciesId,
+    required this.speciesType,
+    required this.change,
+    required this.occurredAt,
+    required this.enteredAt,
+    this.correctsId,
+    this.note,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['tank_id'] = Variable<int>(tankId);
+    map['species_id'] = Variable<String>(speciesId);
+    {
+      map['species_type'] = Variable<String>(
+        $StockEntriesTable.$converterspeciesType.toSql(speciesType),
+      );
+    }
+    map['change'] = Variable<int>(change);
+    map['occurred_at'] = Variable<DateTime>(occurredAt);
+    map['entered_at'] = Variable<DateTime>(enteredAt);
+    if (!nullToAbsent || correctsId != null) {
+      map['corrects_id'] = Variable<int>(correctsId);
+    }
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    return map;
+  }
+
+  StockEntriesCompanion toCompanion(bool nullToAbsent) {
+    return StockEntriesCompanion(
+      id: Value(id),
+      tankId: Value(tankId),
+      speciesId: Value(speciesId),
+      speciesType: Value(speciesType),
+      change: Value(change),
+      occurredAt: Value(occurredAt),
+      enteredAt: Value(enteredAt),
+      correctsId: correctsId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(correctsId),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+    );
+  }
+
+  factory StockEntry.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return StockEntry(
+      id: serializer.fromJson<int>(json['id']),
+      tankId: serializer.fromJson<int>(json['tankId']),
+      speciesId: serializer.fromJson<String>(json['speciesId']),
+      speciesType: $StockEntriesTable.$converterspeciesType.fromJson(
+        serializer.fromJson<String>(json['speciesType']),
+      ),
+      change: serializer.fromJson<int>(json['change']),
+      occurredAt: serializer.fromJson<DateTime>(json['occurredAt']),
+      enteredAt: serializer.fromJson<DateTime>(json['enteredAt']),
+      correctsId: serializer.fromJson<int?>(json['correctsId']),
+      note: serializer.fromJson<String?>(json['note']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'tankId': serializer.toJson<int>(tankId),
+      'speciesId': serializer.toJson<String>(speciesId),
+      'speciesType': serializer.toJson<String>(
+        $StockEntriesTable.$converterspeciesType.toJson(speciesType),
+      ),
+      'change': serializer.toJson<int>(change),
+      'occurredAt': serializer.toJson<DateTime>(occurredAt),
+      'enteredAt': serializer.toJson<DateTime>(enteredAt),
+      'correctsId': serializer.toJson<int?>(correctsId),
+      'note': serializer.toJson<String?>(note),
+    };
+  }
+
+  StockEntry copyWith({
+    int? id,
+    int? tankId,
+    String? speciesId,
+    SpeciesType? speciesType,
+    int? change,
+    DateTime? occurredAt,
+    DateTime? enteredAt,
+    Value<int?> correctsId = const Value.absent(),
+    Value<String?> note = const Value.absent(),
+  }) => StockEntry(
+    id: id ?? this.id,
+    tankId: tankId ?? this.tankId,
+    speciesId: speciesId ?? this.speciesId,
+    speciesType: speciesType ?? this.speciesType,
+    change: change ?? this.change,
+    occurredAt: occurredAt ?? this.occurredAt,
+    enteredAt: enteredAt ?? this.enteredAt,
+    correctsId: correctsId.present ? correctsId.value : this.correctsId,
+    note: note.present ? note.value : this.note,
+  );
+  StockEntry copyWithCompanion(StockEntriesCompanion data) {
+    return StockEntry(
+      id: data.id.present ? data.id.value : this.id,
+      tankId: data.tankId.present ? data.tankId.value : this.tankId,
+      speciesId: data.speciesId.present ? data.speciesId.value : this.speciesId,
+      speciesType: data.speciesType.present
+          ? data.speciesType.value
+          : this.speciesType,
+      change: data.change.present ? data.change.value : this.change,
+      occurredAt: data.occurredAt.present
+          ? data.occurredAt.value
+          : this.occurredAt,
+      enteredAt: data.enteredAt.present ? data.enteredAt.value : this.enteredAt,
+      correctsId: data.correctsId.present
+          ? data.correctsId.value
+          : this.correctsId,
+      note: data.note.present ? data.note.value : this.note,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StockEntry(')
+          ..write('id: $id, ')
+          ..write('tankId: $tankId, ')
+          ..write('speciesId: $speciesId, ')
+          ..write('speciesType: $speciesType, ')
+          ..write('change: $change, ')
+          ..write('occurredAt: $occurredAt, ')
+          ..write('enteredAt: $enteredAt, ')
+          ..write('correctsId: $correctsId, ')
+          ..write('note: $note')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    tankId,
+    speciesId,
+    speciesType,
+    change,
+    occurredAt,
+    enteredAt,
+    correctsId,
+    note,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is StockEntry &&
+          other.id == this.id &&
+          other.tankId == this.tankId &&
+          other.speciesId == this.speciesId &&
+          other.speciesType == this.speciesType &&
+          other.change == this.change &&
+          other.occurredAt == this.occurredAt &&
+          other.enteredAt == this.enteredAt &&
+          other.correctsId == this.correctsId &&
+          other.note == this.note);
+}
+
+class StockEntriesCompanion extends UpdateCompanion<StockEntry> {
+  final Value<int> id;
+  final Value<int> tankId;
+  final Value<String> speciesId;
+  final Value<SpeciesType> speciesType;
+  final Value<int> change;
+  final Value<DateTime> occurredAt;
+  final Value<DateTime> enteredAt;
+  final Value<int?> correctsId;
+  final Value<String?> note;
+  const StockEntriesCompanion({
+    this.id = const Value.absent(),
+    this.tankId = const Value.absent(),
+    this.speciesId = const Value.absent(),
+    this.speciesType = const Value.absent(),
+    this.change = const Value.absent(),
+    this.occurredAt = const Value.absent(),
+    this.enteredAt = const Value.absent(),
+    this.correctsId = const Value.absent(),
+    this.note = const Value.absent(),
+  });
+  StockEntriesCompanion.insert({
+    this.id = const Value.absent(),
+    required int tankId,
+    required String speciesId,
+    required SpeciesType speciesType,
+    required int change,
+    required DateTime occurredAt,
+    this.enteredAt = const Value.absent(),
+    this.correctsId = const Value.absent(),
+    this.note = const Value.absent(),
+  }) : tankId = Value(tankId),
+       speciesId = Value(speciesId),
+       speciesType = Value(speciesType),
+       change = Value(change),
+       occurredAt = Value(occurredAt);
+  static Insertable<StockEntry> custom({
+    Expression<int>? id,
+    Expression<int>? tankId,
+    Expression<String>? speciesId,
+    Expression<String>? speciesType,
+    Expression<int>? change,
+    Expression<DateTime>? occurredAt,
+    Expression<DateTime>? enteredAt,
+    Expression<int>? correctsId,
+    Expression<String>? note,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (tankId != null) 'tank_id': tankId,
+      if (speciesId != null) 'species_id': speciesId,
+      if (speciesType != null) 'species_type': speciesType,
+      if (change != null) 'change': change,
+      if (occurredAt != null) 'occurred_at': occurredAt,
+      if (enteredAt != null) 'entered_at': enteredAt,
+      if (correctsId != null) 'corrects_id': correctsId,
+      if (note != null) 'note': note,
+    });
+  }
+
+  StockEntriesCompanion copyWith({
+    Value<int>? id,
+    Value<int>? tankId,
+    Value<String>? speciesId,
+    Value<SpeciesType>? speciesType,
+    Value<int>? change,
+    Value<DateTime>? occurredAt,
+    Value<DateTime>? enteredAt,
+    Value<int?>? correctsId,
+    Value<String?>? note,
+  }) {
+    return StockEntriesCompanion(
+      id: id ?? this.id,
+      tankId: tankId ?? this.tankId,
+      speciesId: speciesId ?? this.speciesId,
+      speciesType: speciesType ?? this.speciesType,
+      change: change ?? this.change,
+      occurredAt: occurredAt ?? this.occurredAt,
+      enteredAt: enteredAt ?? this.enteredAt,
+      correctsId: correctsId ?? this.correctsId,
+      note: note ?? this.note,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (tankId.present) {
+      map['tank_id'] = Variable<int>(tankId.value);
+    }
+    if (speciesId.present) {
+      map['species_id'] = Variable<String>(speciesId.value);
+    }
+    if (speciesType.present) {
+      map['species_type'] = Variable<String>(
+        $StockEntriesTable.$converterspeciesType.toSql(speciesType.value),
+      );
+    }
+    if (change.present) {
+      map['change'] = Variable<int>(change.value);
+    }
+    if (occurredAt.present) {
+      map['occurred_at'] = Variable<DateTime>(occurredAt.value);
+    }
+    if (enteredAt.present) {
+      map['entered_at'] = Variable<DateTime>(enteredAt.value);
+    }
+    if (correctsId.present) {
+      map['corrects_id'] = Variable<int>(correctsId.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StockEntriesCompanion(')
+          ..write('id: $id, ')
+          ..write('tankId: $tankId, ')
+          ..write('speciesId: $speciesId, ')
+          ..write('speciesType: $speciesType, ')
+          ..write('change: $change, ')
+          ..write('occurredAt: $occurredAt, ')
+          ..write('enteredAt: $enteredAt, ')
+          ..write('correctsId: $correctsId, ')
+          ..write('note: $note')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3336,6 +4114,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ReadingsTable readings = $ReadingsTable(this);
   late final $EventsTable events = $EventsTable(this);
   late final $RemindersTable reminders = $RemindersTable(this);
+  late final $StockEntriesTable stockEntries = $StockEntriesTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3347,6 +4126,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     readings,
     events,
     reminders,
+    stockEntries,
   ];
 }
 
@@ -3367,6 +4147,10 @@ typedef $$TanksTableCreateCompanionBuilder = TanksCompanion Function({
   Value<DateTime?> stockedAt,
   Value<bool> archived,
   Value<DateTime> createdAt,
+  Value<LightLevel?> lightLevel,
+  Value<bool> hasCo2,
+  Value<double?> footprintLengthIn,
+  Value<double?> footprintWidthIn,
 });
 typedef $$TanksTableUpdateCompanionBuilder = TanksCompanion Function({
   Value<int> id,
@@ -3385,6 +4169,10 @@ typedef $$TanksTableUpdateCompanionBuilder = TanksCompanion Function({
   Value<DateTime?> stockedAt,
   Value<bool> archived,
   Value<DateTime> createdAt,
+  Value<LightLevel?> lightLevel,
+  Value<bool> hasCo2,
+  Value<double?> footprintLengthIn,
+  Value<double?> footprintWidthIn,
 });
 
 final class $$TanksTableReferences
@@ -3442,6 +4230,24 @@ final class $$TanksTableReferences
     ).filter((f) => f.tankId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_remindersRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<$StockEntriesTable, List<StockEntry>>
+  _stockEntriesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.stockEntries,
+    aliasName: 'tanks__id__stock_entries__tank_id',
+  );
+
+  $$StockEntriesTableProcessedTableManager get stockEntriesRefs {
+    final manager = $$StockEntriesTableTableManager(
+      $_db,
+      $_db.stockEntries,
+    ).filter((f) => f.tankId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_stockEntriesRefsTable($_db));
     return ProcessedTableManager(
       manager.$state.copyWith(prefetchedData: cache),
     );
@@ -3538,6 +4344,27 @@ class $$TanksTableFilterComposer extends Composer<_$AppDatabase, $TanksTable> {
     builder: (column) => ColumnFilters(column),
   );
 
+  ColumnWithTypeConverterFilters<LightLevel?, LightLevel, String>
+  get lightLevel => $composableBuilder(
+    column: $table.lightLevel,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+
+  ColumnFilters<bool> get hasCo2 => $composableBuilder(
+    column: $table.hasCo2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get footprintLengthIn => $composableBuilder(
+    column: $table.footprintLengthIn,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get footprintWidthIn => $composableBuilder(
+    column: $table.footprintWidthIn,
+    builder: (column) => ColumnFilters(column),
+  );
+
   Expression<bool> readingsRefs(
     Expression<bool> Function($$ReadingsTableFilterComposer f) f,
   ) {
@@ -3604,6 +4431,31 @@ class $$TanksTableFilterComposer extends Composer<_$AppDatabase, $TanksTable> {
           }) => $$RemindersTableFilterComposer(
             $db: $db,
             $table: $db.reminders,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> stockEntriesRefs(
+    Expression<bool> Function($$StockEntriesTableFilterComposer f) f,
+  ) {
+    final $$StockEntriesTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.stockEntries,
+      getReferencedColumn: (t) => t.tankId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$StockEntriesTableFilterComposer(
+            $db: $db,
+            $table: $db.stockEntries,
             $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
             joinBuilder: joinBuilder,
             $removeJoinBuilderFromRootComposer:
@@ -3702,6 +4554,26 @@ class $$TanksTableOrderingComposer
     column: $table.createdAt,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get lightLevel => $composableBuilder(
+    column: $table.lightLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get hasCo2 => $composableBuilder(
+    column: $table.hasCo2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get footprintLengthIn => $composableBuilder(
+    column: $table.footprintLengthIn,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get footprintWidthIn => $composableBuilder(
+    column: $table.footprintWidthIn,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$TanksTableAnnotationComposer
@@ -3779,6 +4651,25 @@ class $$TanksTableAnnotationComposer
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
 
+  GeneratedColumnWithTypeConverter<LightLevel?, String> get lightLevel =>
+      $composableBuilder(
+        column: $table.lightLevel,
+        builder: (column) => column,
+      );
+
+  GeneratedColumn<bool> get hasCo2 =>
+      $composableBuilder(column: $table.hasCo2, builder: (column) => column);
+
+  GeneratedColumn<double> get footprintLengthIn => $composableBuilder(
+    column: $table.footprintLengthIn,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get footprintWidthIn => $composableBuilder(
+    column: $table.footprintWidthIn,
+    builder: (column) => column,
+  );
+
   Expression<T> readingsRefs<T extends Object>(
     Expression<T> Function($$ReadingsTableAnnotationComposer a) f,
   ) {
@@ -3853,6 +4744,31 @@ class $$TanksTableAnnotationComposer
     );
     return f(composer);
   }
+
+  Expression<T> stockEntriesRefs<T extends Object>(
+    Expression<T> Function($$StockEntriesTableAnnotationComposer a) f,
+  ) {
+    final $$StockEntriesTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.stockEntries,
+      getReferencedColumn: (t) => t.tankId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$StockEntriesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.stockEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $$TanksTableTableManager
@@ -3872,6 +4788,7 @@ class $$TanksTableTableManager
             bool readingsRefs,
             bool eventsRefs,
             bool remindersRefs,
+            bool stockEntriesRefs,
           })
         > {
   $$TanksTableTableManager(_$AppDatabase db, $TanksTable table)
@@ -3903,6 +4820,10 @@ class $$TanksTableTableManager
                 Value<DateTime?> stockedAt = const Value.absent(),
                 Value<bool> archived = const Value.absent(),
                 Value<DateTime> createdAt = const Value.absent(),
+                Value<LightLevel?> lightLevel = const Value.absent(),
+                Value<bool> hasCo2 = const Value.absent(),
+                Value<double?> footprintLengthIn = const Value.absent(),
+                Value<double?> footprintWidthIn = const Value.absent(),
               }) => TanksCompanion(
                 id: id,
                 name: name,
@@ -3920,6 +4841,10 @@ class $$TanksTableTableManager
                 stockedAt: stockedAt,
                 archived: archived,
                 createdAt: createdAt,
+                lightLevel: lightLevel,
+                hasCo2: hasCo2,
+                footprintLengthIn: footprintLengthIn,
+                footprintWidthIn: footprintWidthIn,
               ),
           createCompanionCallback:
               ({
@@ -3939,6 +4864,10 @@ class $$TanksTableTableManager
                 Value<DateTime?> stockedAt = const Value.absent(),
                 Value<bool> archived = const Value.absent(),
                 Value<DateTime> createdAt = const Value.absent(),
+                Value<LightLevel?> lightLevel = const Value.absent(),
+                Value<bool> hasCo2 = const Value.absent(),
+                Value<double?> footprintLengthIn = const Value.absent(),
+                Value<double?> footprintWidthIn = const Value.absent(),
               }) => TanksCompanion.insert(
                 id: id,
                 name: name,
@@ -3956,6 +4885,10 @@ class $$TanksTableTableManager
                 stockedAt: stockedAt,
                 archived: archived,
                 createdAt: createdAt,
+                lightLevel: lightLevel,
+                hasCo2: hasCo2,
+                footprintLengthIn: footprintLengthIn,
+                footprintWidthIn: footprintWidthIn,
               ),
           withReferenceMapper: (p0) => p0
               .map(
@@ -3970,6 +4903,7 @@ class $$TanksTableTableManager
                 readingsRefs = false,
                 eventsRefs = false,
                 remindersRefs = false,
+                stockEntriesRefs = false,
               }) {
                 return PrefetchHooks(
                   db: db,
@@ -3977,6 +4911,7 @@ class $$TanksTableTableManager
                     if (readingsRefs) db.readings,
                     if (eventsRefs) db.events,
                     if (remindersRefs) db.reminders,
+                    if (stockEntriesRefs) db.stockEntries,
                   ],
                   addJoins: null,
                   getPrefetchedDataCallback: (items) async {
@@ -4028,6 +4963,27 @@ class $$TanksTableTableManager
                               ),
                           typedResults: items,
                         ),
+                      if (stockEntriesRefs)
+                        await $_getPrefetchedData<
+                          Tank,
+                          $TanksTable,
+                          StockEntry
+                        >(
+                          currentTable: table,
+                          referencedTable: $$TanksTableReferences
+                              ._stockEntriesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$TanksTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).stockEntriesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.tankId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                     ];
                   },
                 );
@@ -4052,6 +5008,7 @@ typedef $$TanksTableProcessedTableManager =
         bool readingsRefs,
         bool eventsRefs,
         bool remindersRefs,
+        bool stockEntriesRefs,
       })
     >;
 typedef $$TestKitsTableCreateCompanionBuilder = TestKitsCompanion Function({
@@ -6174,6 +7131,482 @@ typedef $$RemindersTableProcessedTableManager =
       Reminder,
       PrefetchHooks Function({bool tankId})
     >;
+typedef $$StockEntriesTableCreateCompanionBuilder =
+    StockEntriesCompanion Function({
+      Value<int> id,
+      required int tankId,
+      required String speciesId,
+      required SpeciesType speciesType,
+      required int change,
+      required DateTime occurredAt,
+      Value<DateTime> enteredAt,
+      Value<int?> correctsId,
+      Value<String?> note,
+    });
+typedef $$StockEntriesTableUpdateCompanionBuilder =
+    StockEntriesCompanion Function({
+      Value<int> id,
+      Value<int> tankId,
+      Value<String> speciesId,
+      Value<SpeciesType> speciesType,
+      Value<int> change,
+      Value<DateTime> occurredAt,
+      Value<DateTime> enteredAt,
+      Value<int?> correctsId,
+      Value<String?> note,
+    });
+
+final class $$StockEntriesTableReferences
+    extends BaseReferences<_$AppDatabase, $StockEntriesTable, StockEntry> {
+  $$StockEntriesTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $TanksTable _tankIdTable(_$AppDatabase db) =>
+      db.tanks.createAlias('stock_entries__tank_id__tanks__id');
+
+  $$TanksTableProcessedTableManager get tankId {
+    final $_column = $_itemColumn<int>('tank_id')!;
+
+    final manager = $$TanksTableTableManager(
+      $_db,
+      $_db.tanks,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_tankIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static $StockEntriesTable _correctsIdTable(_$AppDatabase db) => db
+      .stockEntries
+      .createAlias('stock_entries__corrects_id__stock_entries__id');
+
+  $$StockEntriesTableProcessedTableManager? get correctsId {
+    final $_column = $_itemColumn<int>('corrects_id');
+    if ($_column == null) return null;
+    final manager = $$StockEntriesTableTableManager(
+      $_db,
+      $_db.stockEntries,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_correctsIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$StockEntriesTableFilterComposer
+    extends Composer<_$AppDatabase, $StockEntriesTable> {
+  $$StockEntriesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get speciesId => $composableBuilder(
+    column: $table.speciesId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<SpeciesType, SpeciesType, String>
+  get speciesType => $composableBuilder(
+    column: $table.speciesType,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+
+  ColumnFilters<int> get change => $composableBuilder(
+    column: $table.change,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get occurredAt => $composableBuilder(
+    column: $table.occurredAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get enteredAt => $composableBuilder(
+    column: $table.enteredAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$TanksTableFilterComposer get tankId {
+    final $$TanksTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tankId,
+      referencedTable: $db.tanks,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TanksTableFilterComposer(
+            $db: $db,
+            $table: $db.tanks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$StockEntriesTableFilterComposer get correctsId {
+    final $$StockEntriesTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.correctsId,
+      referencedTable: $db.stockEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$StockEntriesTableFilterComposer(
+            $db: $db,
+            $table: $db.stockEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$StockEntriesTableOrderingComposer
+    extends Composer<_$AppDatabase, $StockEntriesTable> {
+  $$StockEntriesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get speciesId => $composableBuilder(
+    column: $table.speciesId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get speciesType => $composableBuilder(
+    column: $table.speciesType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get change => $composableBuilder(
+    column: $table.change,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get occurredAt => $composableBuilder(
+    column: $table.occurredAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get enteredAt => $composableBuilder(
+    column: $table.enteredAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$TanksTableOrderingComposer get tankId {
+    final $$TanksTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tankId,
+      referencedTable: $db.tanks,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TanksTableOrderingComposer(
+            $db: $db,
+            $table: $db.tanks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$StockEntriesTableOrderingComposer get correctsId {
+    final $$StockEntriesTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.correctsId,
+      referencedTable: $db.stockEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$StockEntriesTableOrderingComposer(
+            $db: $db,
+            $table: $db.stockEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$StockEntriesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $StockEntriesTable> {
+  $$StockEntriesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get speciesId =>
+      $composableBuilder(column: $table.speciesId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<SpeciesType, String> get speciesType =>
+      $composableBuilder(
+        column: $table.speciesType,
+        builder: (column) => column,
+      );
+
+  GeneratedColumn<int> get change =>
+      $composableBuilder(column: $table.change, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get occurredAt => $composableBuilder(
+    column: $table.occurredAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get enteredAt =>
+      $composableBuilder(column: $table.enteredAt, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  $$TanksTableAnnotationComposer get tankId {
+    final $$TanksTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tankId,
+      referencedTable: $db.tanks,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$TanksTableAnnotationComposer(
+            $db: $db,
+            $table: $db.tanks,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$StockEntriesTableAnnotationComposer get correctsId {
+    final $$StockEntriesTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.correctsId,
+      referencedTable: $db.stockEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$StockEntriesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.stockEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$StockEntriesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $StockEntriesTable,
+          StockEntry,
+          $$StockEntriesTableFilterComposer,
+          $$StockEntriesTableOrderingComposer,
+          $$StockEntriesTableAnnotationComposer,
+          $$StockEntriesTableCreateCompanionBuilder,
+          $$StockEntriesTableUpdateCompanionBuilder,
+          (StockEntry, $$StockEntriesTableReferences),
+          StockEntry,
+          PrefetchHooks Function({bool tankId, bool correctsId})
+        > {
+  $$StockEntriesTableTableManager(_$AppDatabase db, $StockEntriesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$StockEntriesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$StockEntriesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$StockEntriesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> tankId = const Value.absent(),
+                Value<String> speciesId = const Value.absent(),
+                Value<SpeciesType> speciesType = const Value.absent(),
+                Value<int> change = const Value.absent(),
+                Value<DateTime> occurredAt = const Value.absent(),
+                Value<DateTime> enteredAt = const Value.absent(),
+                Value<int?> correctsId = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+              }) => StockEntriesCompanion(
+                id: id,
+                tankId: tankId,
+                speciesId: speciesId,
+                speciesType: speciesType,
+                change: change,
+                occurredAt: occurredAt,
+                enteredAt: enteredAt,
+                correctsId: correctsId,
+                note: note,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int tankId,
+                required String speciesId,
+                required SpeciesType speciesType,
+                required int change,
+                required DateTime occurredAt,
+                Value<DateTime> enteredAt = const Value.absent(),
+                Value<int?> correctsId = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+              }) => StockEntriesCompanion.insert(
+                id: id,
+                tankId: tankId,
+                speciesId: speciesId,
+                speciesType: speciesType,
+                change: change,
+                occurredAt: occurredAt,
+                enteredAt: enteredAt,
+                correctsId: correctsId,
+                note: note,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$StockEntriesTable, StockEntry>(table),
+                  $$StockEntriesTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({tankId = false, correctsId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (tankId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.tankId,
+                        referencedTable: $$StockEntriesTableReferences
+                            ._tankIdTable(db),
+                        referencedColumn: $$StockEntriesTableReferences
+                            ._tankIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+                    if (correctsId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.correctsId,
+                        referencedTable: $$StockEntriesTableReferences
+                            ._correctsIdTable(db),
+                        referencedColumn: $$StockEntriesTableReferences
+                            ._correctsIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$StockEntriesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $StockEntriesTable,
+      StockEntry,
+      $$StockEntriesTableFilterComposer,
+      $$StockEntriesTableOrderingComposer,
+      $$StockEntriesTableAnnotationComposer,
+      $$StockEntriesTableCreateCompanionBuilder,
+      $$StockEntriesTableUpdateCompanionBuilder,
+      (StockEntry, $$StockEntriesTableReferences),
+      StockEntry,
+      PrefetchHooks Function({bool tankId, bool correctsId})
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -6190,4 +7623,6 @@ class $AppDatabaseManager {
       $$EventsTableTableManager(_db, _db.events);
   $$RemindersTableTableManager get reminders =>
       $$RemindersTableTableManager(_db, _db.reminders);
+  $$StockEntriesTableTableManager get stockEntries =>
+      $$StockEntriesTableTableManager(_db, _db.stockEntries);
 }

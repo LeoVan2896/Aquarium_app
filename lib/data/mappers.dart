@@ -29,3 +29,14 @@ extension EventToDomain on Event {
     correctsId: correctsId,
   );
 }
+
+extension StockEntryToDomain on StockEntry {
+  LoggedStock toLogged() => LoggedStock(
+    id: id,
+    speciesId: speciesId,
+    speciesType: speciesType,
+    change: change,
+    occurredAt: occurredAt,
+    correctsId: correctsId,
+  );
+}

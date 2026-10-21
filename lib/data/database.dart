@@ -4,6 +4,9 @@ import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 
 import '../domain/enums.dart';
+import '../domain/species.dart' show LightLevel;
+
+import 'database.steps.dart';
 
 part 'database.g.dart';
 
@@ -24,6 +27,10 @@ class Tanks extends Table {
   DateTimeColumn get stockedAt => dateTime().nullable()();
   BoolColumn get archived => boolean().withDefault(const Constant(false))();
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
+  TextColumn get lightLevel => textEnum<LightLevel>().nullable()();
+  BoolColumn get hasCo2 => boolean().withDefault(const Constant(false))();
+  RealColumn get footprintLengthIn => real().nullable()();
+  RealColumn get footprintWidthIn => real().nullable()();
 }
 
 class TestKits extends Table {
@@ -74,6 +81,19 @@ class Events extends Table {
   TextColumn get note => text().nullable()();
 }
 
+class StockEntries extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get tankId => integer().references(Tanks, #id)();
+  TextColumn get speciesId => text()();
+  TextColumn get speciesType => textEnum<SpeciesType>()();
+  IntColumn get change => integer()();
+  DateTimeColumn get occurredAt => dateTime()();
+  DateTimeColumn get enteredAt => dateTime().withDefault(currentDateAndTime)();
+  IntColumn get correctsId =>
+      integer().nullable().references(StockEntries, #id)();
+  TextColumn get note => text().nullable()();
+}
+
 class Reminders extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get tankId => integer().references(Tanks, #id)();
@@ -95,14 +115,22 @@ class StepsConverter extends TypeConverter<List<double>, String> {
 }
 
 @DriftDatabase(
-  tables: [Tanks, TestKits, KitParameters, Readings, Events, Reminders],
+  tables: [
+    Tanks,
+    TestKits,
+    KitParameters,
+    Readings,
+    Events,
+    Reminders,
+    StockEntries,
+  ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor])
     : super(executor ?? driftDatabase(name: 'aquarium'));
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   Future<int> addTank(TanksCompanion tank) => into(tanks).insert(tank);
 
@@ -159,6 +187,26 @@ class AppDatabase extends _$AppDatabase {
 
   Future<int> addEvent(EventsCompanion event) => into(events).insert(event);
 
+  Future<int> addStockEntry(StockEntriesCompanion entry) =>
+      into(stockEntries).insert(entry);
+
+  Future<int> correctStockEntry(
+    StockEntry original, {
+    required int change,
+    required DateTime occurredAt,
+    String? note,
+  }) => into(stockEntries).insert(
+    StockEntriesCompanion.insert(
+      tankId: original.tankId,
+      speciesId: original.speciesId,
+      speciesType: original.speciesType,
+      change: change,
+      occurredAt: occurredAt,
+      correctsId: Value(original.id),
+      note: Value(note),
+    ),
+  );
+
   Future<int> correctEvent(Event original, EventsCompanion correction) =>
       into(events).insert(
         correction.copyWith(
@@ -190,17 +238,27 @@ class AppDatabase extends _$AppDatabase {
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (m) async {
       await m.createAll();
-      await _createAppendOnlyGuards();
+      await _createAppendOnlyGuards(['readings', 'events', 'stock_entries']);
       await _seed();
     },
+    onUpgrade: stepByStep(
+      from1To2: (m, schema) async {
+        await m.addColumn(schema.tanks, schema.tanks.lightLevel);
+        await m.addColumn(schema.tanks, schema.tanks.hasCo2);
+        await m.addColumn(schema.tanks, schema.tanks.footprintLengthIn);
+        await m.addColumn(schema.tanks, schema.tanks.footprintWidthIn);
+        await m.createTable(schema.stockEntries);
+        await _createAppendOnlyGuards(['stock_entries']);
+      },
+    ),
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
     },
   );
 
   // Enforced in SQLite, not just in Dart, so no future query can silently rewrite the log.
-  Future<void> _createAppendOnlyGuards() async {
-    for (final table in ['readings', 'events']) {
+  Future<void> _createAppendOnlyGuards(List<String> tables) async {
+    for (final table in tables) {
       for (final op in ['UPDATE', 'DELETE']) {
         await customStatement('''
           CREATE TRIGGER ${table}_no_${op.toLowerCase()}
