@@ -93,6 +93,7 @@ void main() {
     await tester.tap(find.byTooltip('Edit tank'));
     await tester.pumpAndSettle();
     await scrollTo(tester, find.text('Archive tank'));
+    await scrollToEnd(tester);
     await tester.tap(find.text('Archive tank'));
     await tester.pumpAndSettle();
 
@@ -109,6 +110,7 @@ void main() {
     await tester.tap(find.text('20 gal planted'));
     await tester.pumpAndSettle();
     await scrollTo(tester, find.text('Restore tank'));
+    await scrollToEnd(tester);
     await tester.tap(find.text('Restore tank'));
     await tester.pumpAndSettle();
 

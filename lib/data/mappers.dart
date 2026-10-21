@@ -1,4 +1,5 @@
 import '../domain/models.dart';
+import '../domain/tank_conditions.dart';
 import 'database.dart';
 
 extension TankToDomain on Tank {
@@ -38,5 +39,20 @@ extension StockEntryToDomain on StockEntry {
     change: change,
     occurredAt: occurredAt,
     correctsId: correctsId,
+  );
+}
+
+extension TankToSetup on Tank {
+  TankSetup toSetup({required bool usesRootTabs}) => TankSetup(
+    volumeGal: volumeGal,
+    lengthIn: footprintLengthIn,
+    widthIn: footprintWidthIn,
+    hasSoil: hasSoil,
+    sandSubstrate: substrateType.toLowerCase().contains('sand'),
+    usesRootTabs: usesRootTabs,
+    lightLevel: lightLevel,
+    hasCo2: hasCo2,
+    targetTempF: targetTempF,
+    roomTempF: roomTempF,
   );
 }

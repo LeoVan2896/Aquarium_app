@@ -1,3 +1,4 @@
+import 'package:aquarium_app/domain/cycle_engine.dart';
 import 'package:aquarium_app/domain/enums.dart';
 import 'package:aquarium_app/domain/models.dart';
 import 'package:aquarium_app/domain/tank_conditions.dart';
@@ -93,6 +94,13 @@ void main() {
         6.2,
       );
     });
+  });
+
+  test('only fishless tanks that are not ready to stock gate fish', () {
+    expect(fishGated(CycleMethod.fishless, CycleStage.nitritePhase), isTrue);
+    expect(fishGated(CycleMethod.fishless, CycleStage.cycled), isTrue);
+    expect(fishGated(CycleMethod.fishless, CycleStage.readyToStock), isFalse);
+    expect(fishGated(CycleMethod.fishIn, CycleStage.ammoniaPhase), isFalse);
   });
 
   group('maturity', () {

@@ -5,12 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/database.dart';
 import '../data/providers.dart';
 import '../domain/enums.dart';
+import '../domain/species.dart';
 import 'add_reading_screen.dart';
+import 'add_stock_screen.dart';
 import 'charts.dart';
 import 'dashboard.dart';
 import 'labels.dart';
 import 'log_event_screen.dart';
 import 'reminder_screen.dart';
+import 'species_detail_screen.dart';
 import 'tank_form_screen.dart';
 import 'theme.dart';
 import 'value_input.dart';
@@ -30,7 +33,16 @@ class TankScreen extends ConsumerWidget {
     final dashboard = ref.watch(tankDashboardProvider(tank)).value;
     final readings = ref.watch(tankReadingsProvider(tankId)).value ?? const [];
     final events = ref.watch(tankEventsProvider(tankId)).value ?? const [];
-    final entries = _historyEntries(readings, events);
+    final stockEntries =
+        ref.watch(tankStockEntriesProvider(tankId)).value ?? const [];
+    final stock = ref.watch(stockContextProvider(tank)).value;
+    final names = {
+      for (final a in stock?.catalog.animals ?? const <AnimalSpecies>[])
+        (SpeciesType.animal, a.id): a.commonName,
+      for (final p in stock?.catalog.plants ?? const <PlantSpecies>[])
+        (SpeciesType.plant, p.id): p.commonName,
+    };
+    final entries = _historyEntries(readings, events, stockEntries);
 
     return Scaffold(
       appBar: AppBar(
@@ -85,6 +97,10 @@ class TankScreen extends ConsumerWidget {
               const SizedBox(height: AppSpace.s5),
             ],
           ],
+          if (stock != null) ...[
+            _StockSection(tank: tank, stock: stock),
+            const SizedBox(height: AppSpace.s5),
+          ],
           const SectionHeader('History'),
           if (entries.isEmpty)
             const Padding(
@@ -118,6 +134,22 @@ class TankScreen extends ConsumerWidget {
                     _ReadingEntry() => _ReadingRow(
                       entry,
                       onTap: () => _correct(context, entry.reading),
+                    ),
+                    _StockItem() => _StockRow(
+                      entry,
+                      name:
+                          names[(
+                            entry.entry.speciesType,
+                            entry.entry.speciesId,
+                          )] ??
+                          entry.entry.speciesId,
+                      onTap: () => showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: AppColors.surface,
+                        showDragHandle: true,
+                        builder: (_) => _StockCorrectionSheet(entry.entry),
+                      ),
                     ),
                     _EventEntry() => _EventRow(
                       entry,
@@ -215,9 +247,28 @@ class _EventEntry extends _Entry {
   DateTime get at => event.occurredAt;
 }
 
-List<_Entry> _historyEntries(List<Reading> readings, List<Event> events) {
+class _StockItem extends _Entry {
+  _StockItem(this.entry, this.replaced);
+
+  final StockEntry entry;
+  final StockEntry? replaced;
+
+  @override
+  DateTime get at => entry.occurredAt;
+}
+
+List<_Entry> _historyEntries(
+  List<Reading> readings,
+  List<Event> events,
+  List<StockEntry> stock,
+) {
   final readingsById = {for (final r in readings) r.id: r};
   final eventsById = {for (final e in events) e.id: e};
+  final stockById = {for (final s in stock) s.id: s};
+  final supersededStock = {
+    for (final s in stock)
+      if (s.correctsId != null) s.correctsId,
+  };
   final supersededReadings = {
     for (final r in readings)
       if (r.correctsId != null) r.correctsId,
@@ -233,6 +284,9 @@ List<_Entry> _historyEntries(List<Reading> readings, List<Event> events) {
     for (final e in events)
       if (!supersededEvents.contains(e.id))
         _EventEntry(e, eventsById[e.correctsId]),
+    for (final s in stock)
+      if (!supersededStock.contains(s.id))
+        _StockItem(s, stockById[s.correctsId]),
   ]..sort((a, b) => b.at.compareTo(a.at));
 }
 
@@ -431,6 +485,272 @@ class _CorrectionSheetState extends ConsumerState<_CorrectionSheet> {
               width: double.infinity,
               child: FilledButton(
                 onPressed: _saving || _value == null ? null : _save,
+                child: const Text('Save correction'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _StockSection extends StatelessWidget {
+  const _StockSection({required this.tank, required this.stock});
+
+  final Tank tank;
+  final StockContext stock;
+
+  void _push(BuildContext context, Widget screen) =>
+      Navigator.of(context).push(CupertinoPageRoute(builder: (_) => screen));
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SectionHeader(
+          'Stock',
+          trailing: TextButton.icon(
+            onPressed: () => _push(context, AddStockScreen(tank: tank)),
+            icon: const Icon(Icons.add_rounded, size: 18),
+            label: const Text('Add'),
+          ),
+        ),
+        if (stock.stock.isEmpty)
+          Padding(
+            padding: const EdgeInsets.all(AppSpace.s1),
+            child: Text(
+              stock.fishGated
+                  ? 'No fish or plants yet. Plants can go in now; wait for the cycle to finish before adding fish.'
+                  : 'No fish or plants yet.',
+              style: const TextStyle(
+                fontSize: AppType.sm,
+                color: AppColors.muted,
+              ),
+            ),
+          )
+        else
+          GroupedSection(
+            children: [
+              for (final s in stock.stock)
+                ListTile(
+                  onTap: switch ((s.animal, s.plant)) {
+                    (final a?, _) => () => _push(
+                      context,
+                      AnimalDetailScreen(species: a),
+                    ),
+                    (_, final p?) => () => _push(
+                      context,
+                      PlantDetailScreen(plant: p),
+                    ),
+                    _ => null,
+                  },
+                  contentPadding: const EdgeInsets.only(
+                    left: AppSpace.s4,
+                    right: AppSpace.s1,
+                  ),
+                  leading: Icon(
+                    s.type == SpeciesType.plant
+                        ? Icons.grass_rounded
+                        : Icons.set_meal_outlined,
+                    color: AppColors.muted,
+                  ),
+                  title: Text(s.name),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '×${s.count}',
+                        style: const TextStyle(
+                          fontSize: AppType.md,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: 'Remove ${s.name}',
+                        onPressed: () => _push(
+                          context,
+                          AddStockScreen(tank: tank, removing: s),
+                        ),
+                        icon: const Icon(
+                          Icons.remove_circle_outline_rounded,
+                          color: AppColors.muted,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+      ],
+    );
+  }
+}
+
+class _StockRow extends StatelessWidget {
+  const _StockRow(this.item, {required this.name, required this.onTap});
+
+  final _StockItem item;
+  final String name;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final e = item.entry;
+    final replaced = item.replaced;
+    final details = [
+      formatTime(e.occurredAt),
+      if (replaced != null) 'Corrected · was ${replaced.change.abs()}',
+      ?e.note,
+    ].join(' · ');
+
+    return ListTile(
+      onTap: onTap,
+      contentPadding: const EdgeInsets.symmetric(horizontal: AppSpace.s4),
+      leading: Icon(
+        e.change < 0 ? Icons.logout_rounded : Icons.login_rounded,
+        color: AppColors.muted,
+      ),
+      title: Text('${e.change < 0 ? 'Removed' : 'Added'} $name'),
+      subtitle: Text(
+        details,
+        style: const TextStyle(fontSize: AppType.sm, color: AppColors.muted),
+      ),
+      trailing: Text(
+        '${e.change.abs()}',
+        style: const TextStyle(
+          fontSize: AppType.md,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+class _StockCorrectionSheet extends ConsumerStatefulWidget {
+  const _StockCorrectionSheet(this.original);
+
+  final StockEntry original;
+
+  @override
+  ConsumerState<_StockCorrectionSheet> createState() =>
+      _StockCorrectionSheetState();
+}
+
+class _StockCorrectionSheetState extends ConsumerState<_StockCorrectionSheet> {
+  late int _count = widget.original.change.abs();
+  late DateTime _at = widget.original.occurredAt;
+  late final _note = TextEditingController(text: widget.original.note);
+  bool _saving = false;
+
+  bool get _removal => widget.original.change < 0;
+
+  @override
+  void dispose() {
+    _note.dispose();
+    super.dispose();
+  }
+
+  Future<void> _save() async {
+    setState(() => _saving = true);
+    final note = _note.text.trim();
+    await ref
+        .read(databaseProvider)
+        .correctStockEntry(
+          widget.original,
+          change: _removal ? -_count : _count,
+          occurredAt: _at,
+          note: note.isEmpty ? null : note,
+        );
+    if (mounted) Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final verb = _removal ? 'removed' : 'added';
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        AppSpace.s4,
+        0,
+        AppSpace.s4,
+        AppSpace.s4 + MediaQuery.viewInsetsOf(context).bottom,
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Correct stock entry',
+              style: TextStyle(
+                fontSize: AppType.xl,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: AppSpace.s1),
+            Text(
+              'Logged ${widget.original.change.abs()} $verb on ${formatDateTime(widget.original.occurredAt)}. Set 0 if it never happened. The original stays in the log.',
+              style: const TextStyle(
+                fontSize: AppType.sm,
+                color: AppColors.muted,
+              ),
+            ),
+            const SizedBox(height: AppSpace.s4),
+            GroupedSection(
+              children: [
+                ListTile(
+                  contentPadding: const EdgeInsets.only(
+                    left: AppSpace.s4,
+                    right: AppSpace.s2,
+                  ),
+                  title: Text('How many $verb'),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        tooltip: 'Fewer',
+                        onPressed: _count > 0
+                            ? () => setState(() => _count--)
+                            : null,
+                        icon: const Icon(Icons.remove_rounded),
+                      ),
+                      SizedBox(
+                        width: 32,
+                        child: Text(
+                          '$_count',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: AppType.lg,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: 'More',
+                        onPressed: () => setState(() => _count++),
+                        icon: const Icon(Icons.add_rounded),
+                      ),
+                    ],
+                  ),
+                ),
+                DateTimeRow(
+                  label: _removal ? 'Removed' : 'Added',
+                  value: _at,
+                  onChanged: (t) => setState(() => _at = t),
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpace.s3),
+            TextField(
+              controller: _note,
+              decoration: const InputDecoration(labelText: 'Note (optional)'),
+            ),
+            const SizedBox(height: AppSpace.s4),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed: _saving ? null : _save,
                 child: const Text('Save correction'),
               ),
             ),

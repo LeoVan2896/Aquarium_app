@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' show DateUtils;
 
 import '../domain/cycle_engine.dart';
 import '../domain/enums.dart';
+import '../domain/fit_checks.dart';
 import '../domain/species.dart';
 import '../domain/units.dart';
 
@@ -114,6 +115,29 @@ extension IntermediateReasonLabel on IntermediateReason {
     IntermediateReason.territorial => 'Territorial males',
     IntermediateReason.equipment => 'Needs special equipment',
     IntermediateReason.poorCompetitor => 'Easily outcompeted for food',
+  };
+}
+
+extension CheckKindLabel on CheckKind {
+  String get label => switch (this) {
+    CheckKind.temperature => 'Temperature',
+    CheckKind.ph => 'pH',
+    CheckKind.gh => 'GH',
+    CheckKind.kh => 'KH',
+    CheckKind.tankSize => 'Tank size',
+    CheckKind.groupSize => 'Group size',
+    CheckKind.maturity => 'Established tank',
+    CheckKind.substrate => 'Substrate',
+    CheckKind.light => 'Light',
+    CheckKind.co2 => 'CO₂',
+    CheckKind.rootFeeder => 'Root feeding',
+    CheckKind.temperatureOverlap => 'Shared temperature',
+    CheckKind.temperament => 'Temperament',
+    CheckKind.predation => 'Predation',
+    CheckKind.eatsShrimp => 'Shrimp safety',
+    CheckKind.finNipping => 'Fin nipping',
+    CheckKind.shrimpWater => 'Shrimp water',
+    CheckKind.plantDamage => 'Plant damage',
   };
 }
 

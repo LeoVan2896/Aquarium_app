@@ -58,6 +58,12 @@ Future<void> tearDownApp(WidgetTester tester, AppDatabase db) async {
 Future<void> scrollTo(WidgetTester tester, Finder finder) => tester
     .scrollUntilVisible(finder, 200, scrollable: find.byType(Scrollable).first);
 
+// scrollUntilVisible can stop with the target under a bottom button bar.
+Future<void> scrollToEnd(WidgetTester tester) async {
+  await tester.drag(find.byType(Scrollable).first, const Offset(0, -2000));
+  await tester.pumpAndSettle();
+}
+
 class FakeReminderNotifier implements ReminderNotifier {
   FakeReminderNotifier({this.granted = true});
 

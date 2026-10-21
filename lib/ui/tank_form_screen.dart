@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/database.dart';
 import '../data/providers.dart';
 import '../domain/enums.dart';
+import '../domain/species.dart' show LightLevel;
 import '../domain/units.dart';
 import 'labels.dart';
 import 'theme.dart';
@@ -32,6 +33,8 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
   late final _heater = _numberController(widget.tank?.heaterWatts);
   late final _light = _numberController(widget.tank?.lightWatts);
   late final _lightHours = _numberController(widget.tank?.lightHoursPerDay);
+  late final _length = _numberController(widget.tank?.footprintLengthIn);
+  late final _width = _numberController(widget.tank?.footprintWidthIn);
 
   late bool _hasSoil = widget.tank?.hasSoil ?? false;
   late WaterSource _waterSource = widget.tank?.waterSource ?? WaterSource.tap;
@@ -39,6 +42,8 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
       widget.tank?.cycleMethod ?? CycleMethod.fishless;
   late DateTime? _cycleStartedAt = widget.tank?.cycleStartedAt;
   late DateTime? _stockedAt = widget.tank?.stockedAt;
+  late LightLevel? _lightLevel = widget.tank?.lightLevel;
+  late bool _hasCo2 = widget.tank?.hasCo2 ?? false;
   bool _saving = false;
 
   bool get _isNew => widget.tank == null;
@@ -63,6 +68,8 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
       _heater,
       _light,
       _lightHours,
+      _length,
+      _width,
     ])
       c.text,
     _hasSoil,
@@ -70,6 +77,8 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
     _cycleMethod,
     _cycleStartedAt,
     _stockedAt,
+    _lightLevel,
+    _hasCo2,
   ];
 
   static TextEditingController _numberController(double? value) =>
@@ -86,6 +95,8 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
       _heater,
       _light,
       _lightHours,
+      _length,
+      _width,
     ]) {
       c.dispose();
     }
@@ -119,6 +130,10 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
       cycleMethod: Value(_cycleMethod),
       cycleStartedAt: Value(_cycleStartedAt),
       stockedAt: Value(_stockedAt),
+      footprintLengthIn: Value(_parse(_length)),
+      footprintWidthIn: Value(_parse(_width)),
+      lightLevel: Value(_lightLevel),
+      hasCo2: Value(_hasCo2),
     );
 
     final tank = widget.tank;
@@ -217,6 +232,29 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
                             ? 'Enter the volume in gallons.'
                             : null;
                       },
+                    ),
+                  ),
+                  _Field(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: _NumberField(
+                            controller: _length,
+                            label: 'Length',
+                            suffix: 'in',
+                            validator: _optionalNumber,
+                          ),
+                        ),
+                        const SizedBox(width: AppSpace.s3),
+                        Expanded(
+                          child: _NumberField(
+                            controller: _width,
+                            label: 'Width',
+                            suffix: 'in',
+                            validator: _optionalNumber,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   _Field(
@@ -367,6 +405,37 @@ class _TankFormScreenState extends ConsumerState<TankFormScreen> {
                       label: 'Light on per day',
                       suffix: 'h',
                       validator: _optionalNumber,
+                    ),
+                  ),
+                  _Field(
+                    child: DropdownButtonFormField<LightLevel?>(
+                      initialValue: _lightLevel,
+                      dropdownColor: AppColors.surface2,
+                      decoration: const InputDecoration(
+                        labelText: 'Light strength',
+                        helperText:
+                            'Plant guides rate light as low, medium or high.',
+                      ),
+                      items: [
+                        const DropdownMenuItem(
+                          value: null,
+                          child: Text('Not sure'),
+                        ),
+                        for (final level in LightLevel.values)
+                          DropdownMenuItem(
+                            value: level,
+                            child: Text(level.label),
+                          ),
+                      ],
+                      onChanged: (v) => setState(() => _lightLevel = v),
+                    ),
+                  ),
+                  SwitchListTile(
+                    value: _hasCo2,
+                    onChanged: (v) => setState(() => _hasCo2 = v),
+                    title: const Text('CO₂ injection'),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: AppSpace.s4,
                     ),
                   ),
                 ],

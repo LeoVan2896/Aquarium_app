@@ -11,6 +11,7 @@ import '../domain/reminder_schedule.dart';
 import '../domain/softened_check.dart';
 import '../domain/species.dart';
 import '../domain/species_catalog.dart';
+import '../domain/tank_conditions.dart';
 import '../notifications/reminder_notifier.dart';
 import '../scanning/chart_scanner.dart';
 import 'database.dart';
@@ -224,3 +225,159 @@ final chartScannerProvider = Provider<ChartScanner>(
 final speciesCatalogProvider = FutureProvider<SpeciesCatalog>(
   (ref) => loadSpeciesCatalog(rootBundle.loadString),
 );
+
+final tankStockEntriesProvider = StreamProvider.family<List<StockEntry>, int>((
+  ref,
+  tankId,
+) {
+  final db = ref.watch(databaseProvider);
+  return (db.select(
+    db.stockEntries,
+  )..where((s) => s.tankId.equals(tankId))).watch();
+});
+
+class StockedSpecies {
+  const StockedSpecies({
+    required this.type,
+    required this.speciesId,
+    required this.count,
+    this.animal,
+    this.plant,
+  });
+
+  final SpeciesType type;
+  final String speciesId;
+  final int count;
+  final AnimalSpecies? animal;
+  final PlantSpecies? plant;
+
+  // A species dropped from a later catalog still shows, by its id.
+  String get name => animal?.commonName ?? plant?.commonName ?? speciesId;
+}
+
+class StockContext {
+  const StockContext({
+    required this.catalog,
+    required this.setup,
+    required this.conditions,
+    required this.maturity,
+    required this.status,
+    required this.fishGated,
+    required this.stock,
+    required this.now,
+  });
+
+  final SpeciesCatalog catalog;
+  final TankSetup setup;
+  final TankConditions conditions;
+  final Maturity maturity;
+  final CycleStatus status;
+  final bool fishGated;
+  final List<StockedSpecies> stock;
+  final DateTime now;
+
+  List<AnimalSpecies> get animals => [for (final s in stock) ?s.animal];
+
+  List<PlantSpecies> get plants => [for (final s in stock) ?s.plant];
+
+  int countOf(SpeciesType type, String speciesId) =>
+      stock
+          .where((s) => s.type == type && s.speciesId == speciesId)
+          .firstOrNull
+          ?.count ??
+      0;
+}
+
+final stockContextProvider = Provider.family<AsyncValue<StockContext>, Tank>((
+  ref,
+  tank,
+) {
+  final catalog = ref.watch(speciesCatalogProvider);
+  final readings = ref.watch(tankReadingsProvider(tank.id));
+  final events = ref.watch(tankEventsProvider(tank.id));
+  final entries = ref.watch(tankStockEntriesProvider(tank.id));
+  for (final value in [catalog, readings, events, entries]) {
+    if (value case AsyncError(:final error, :final stackTrace)) {
+      return AsyncError(error, stackTrace);
+    }
+  }
+  if ((catalog.value, readings.value, events.value, entries.value) case (
+    final c?,
+    final r?,
+    final e?,
+    final s?,
+  )) {
+    return AsyncData(
+      _buildStockContext(
+        tank,
+        c,
+        [for (final x in r) x.toLogged()],
+        e,
+        [for (final x in s) x.toLogged()],
+        ref.watch(clockProvider)(),
+        ref.watch(domainConfigProvider),
+      ),
+    );
+  }
+  return const AsyncLoading();
+});
+
+StockContext _buildStockContext(
+  Tank tank,
+  SpeciesCatalog catalog,
+  List<LoggedReading> readings,
+  List<Event> events,
+  List<LoggedStock> entries,
+  DateTime now,
+  DomainConfig config,
+) {
+  final profile = tank.toProfile();
+  final loggedEvents = [for (final e in events) e.toLogged()];
+  final effectiveIds = {for (final e in effectiveOnly(loggedEvents)) e.id};
+  final usesRootTabs = events.any(
+    (e) =>
+        effectiveIds.contains(e.id) &&
+        (e.product?.toLowerCase().contains('root tab') ?? false),
+  );
+  final setup = tank.toSetup(usesRootTabs: usesRootTabs);
+  final status = evaluateCycle(
+    tank: profile,
+    readings: readings,
+    events: loggedEvents,
+    now: now,
+    config: config,
+  );
+  final animals = {for (final a in catalog.animals) a.id: a};
+  final plants = {for (final p in catalog.plants) p.id: p};
+  final stock = [
+    for (final MapEntry(key: key, value: count) in stockCounts(entries).entries)
+      StockedSpecies(
+        type: key.type,
+        speciesId: key.speciesId,
+        count: count,
+        animal: key.type == SpeciesType.animal ? animals[key.speciesId] : null,
+        plant: key.type == SpeciesType.plant ? plants[key.speciesId] : null,
+      ),
+  ]..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+
+  return StockContext(
+    catalog: catalog,
+    setup: setup,
+    conditions: tankConditions(
+      setup: setup,
+      readings: readings,
+      now: now,
+      config: config,
+    ),
+    maturity: tankMaturity(
+      tank: profile,
+      readings: readings,
+      events: loggedEvents,
+      config: config,
+    ),
+    status: status,
+    fishGated: fishGated(tank.cycleMethod, status.stage),
+    stock: stock,
+    now: now,
+  );
+}

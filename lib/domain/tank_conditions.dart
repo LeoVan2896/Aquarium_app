@@ -85,6 +85,10 @@ TankConditions tankConditions({
   );
 }
 
+// Fish-in tanks are stocked from the start, so only fishless tanks wait.
+bool fishGated(CycleMethod method, CycleStage stage) =>
+    method == CycleMethod.fishless && stage != CycleStage.readyToStock;
+
 class Maturity {
   const Maturity({this.readyAt, this.establishedAt});
 
