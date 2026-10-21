@@ -6,8 +6,12 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Aquarium uses the camera to photograph your test kit's color chart and read its step values.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Aquarium reads the step values from a photo of your test kit's color chart that you choose.</string>
 	<key>CFBundleDisplayName</key>
-	<string>Aquarium App</string>
+	<string>Aquarium</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

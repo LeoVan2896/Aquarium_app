@@ -1,0 +1,24 @@
+workflows:
+  ios-unsigned:
+    name: iOS unsigned IPA for Sideloadly
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: 3.47.7
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Run tests
+        script: flutter test
+      # Unsigned on purpose: Sideloadly signs it with a free Apple ID on Windows.
+      - name: Build iOS app
+        script: flutter build ios --release --no-codesign
+      - name: Package IPA
+        script: |
+          mkdir -p Payload
+          cp -R build/ios/iphoneos/Runner.app Payload/
+          zip -qr aquarium.ipa Payload
+    artifacts:
+      - aquarium.ipa

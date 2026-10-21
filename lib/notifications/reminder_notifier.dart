@@ -48,9 +48,19 @@ class LocalReminderNotifier implements ReminderNotifier {
 
   @override
   Future<bool> requestPermission() async {
-    final android = _android;
-    if (android == null) return true;
-    return await android.requestNotificationsPermission() ?? false;
+    final ios = _plugin
+        .resolvePlatformSpecificImplementation<
+          IOSFlutterLocalNotificationsPlugin
+        >();
+    if (ios != null) {
+      return await ios.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          ) ??
+          false;
+    }
+    return await _android?.requestNotificationsPermission() ?? false;
   }
 
   // The device's IANA zone name isn't available without another package, so each local

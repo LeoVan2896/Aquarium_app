@@ -273,7 +273,7 @@ class _PermissionBanner extends StatelessWidget {
           SizedBox(width: AppSpace.s3),
           Expanded(
             child: Text(
-              'Notifications are off for this app, so reminders can\'t appear. Turn them on in Android Settings › Apps › aquarium_app › Notifications.',
+              'Notifications are off for this app, so reminders can\'t appear. Turn them on in your phone\'s Settings › Aquarium › Notifications.',
             ),
           ),
         ],
